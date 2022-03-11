@@ -1,17 +1,14 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createWebHistory, createRouter } from "vue-router";
 
 //Public
 import LandingPage from "../components/public/LandingPage";
-import Home from "../components/public/home/Home"
+import HomeIndex from "../components/public/home/HomeIndex"
 import NotFound from '../components/public/404'
 
 //Admin
 import AdminPage from '../components/admin/AdminPage'
 import Dashboard from '../components/admin/Dashboard'
 import AdminReservationsIndex from '../components/admin/reservations/Index'
-
-Vue.use(VueRouter);
 
 //Routes
 const routes = [
@@ -37,21 +34,16 @@ const routes = [
         children: [
             {
                 path: '',
-                name: 'home',
-                component: Home,
+                name: 'homeIndex',
+                component: HomeIndex,
             }
         ]
-    },
-    {
-        path: '/404',
-        alias: '*',
-        component:NotFound
-    },
+    }
 ];
 
-const router = new VueRouter({
-    mode: 'history',
-    routes
-});
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+})
 
 export default router;

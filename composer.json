@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "starbuck/chata-travna",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Chata Travná",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
@@ -11,7 +11,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "laravel/sanctum": "^2.11",
+        "laravel/fortify": "^1.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -25,6 +25,7 @@ class ReservationStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            ''
 
         ];
     }

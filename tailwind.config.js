@@ -4,7 +4,10 @@ module.exports = {
           skew: {
             '30': '30deg',
             '20': '20deg',
-          }
+          },
+          colors: {
+            'main': '#76b38f',
+          },
         }
     },
     content: [

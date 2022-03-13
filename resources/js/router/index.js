@@ -2,7 +2,9 @@ import { createWebHistory, createRouter } from "vue-router";
 
 //Public
 import LandingPage from "../components/public/LandingPage";
-import HomeIndex from "../components/public/home/HomeIndex"
+import HomeIndex from "../components/public/home/HomeIndex";
+import ReservationForm from "../components/public/home/ReservationForm";
+
 import NotFound from '../components/public/404'
 
 //Admin
@@ -36,9 +38,14 @@ const routes = [
                 path: '',
                 name: 'homeIndex',
                 component: HomeIndex,
+            },
+            {
+                path: 'reservations',
+                name: 'reservationsForm',
+                component: ReservationForm,
             }
         ]
-    }
+    },
 ];
 
 const router = createRouter({

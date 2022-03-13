@@ -38,20 +38,21 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
+
         $reservation = new Reservation();
 
-        $reservation->start = Carbon::parse($request->range['start'])->format('Y-m-d');
-        $reservation->end = Carbon::parse($request->range['end'])->format('Y-m-d');
+        $reservation->start = Carbon::parse($request->reservationRange_start)->format('Y-m-d');
+        $reservation->end = Carbon::parse($request->reservationRange_end)->format('Y-m-d');
         $reservation->name = $request->name;
         $reservation->surname = $request->surname;
         $reservation->email = $request->email;
-        $reservation->city = $request->city;
-        $reservation->zip = $request->zip;
-        $reservation->adult_count = $request->adult_count;
-        $reservation->child_count = $request->child_count;
+        $reservation->phone = $request->phone;
+        $reservation->adult_count = $request->adultCount;
+        $reservation->child_count = $request->childCount;
         $reservation->pet = $request->pet;
 
         $reservation->save();
+
     }
 
     /**

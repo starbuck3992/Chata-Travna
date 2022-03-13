@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import Reservations from './Reservations';
 const files = [
   {
     title: 'IMG_4985.HEIC',
@@ -82,9 +81,6 @@ const files = [
   },
 ]
 export default {
-    components: {
-        Reservations
-    },
     setup() {
     return {
       files,

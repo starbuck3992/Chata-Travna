@@ -17,14 +17,14 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->date('start');
             $table->date('end');
-            $table->string('name');
-            $table->string('surname');
-            $table->string('email');
-            $table->string('city');
-            $table->string('zip');
-            $table->integer('adult_count');
-            $table->integer('child_count');
-            $table->boolean('pet');
+            $table->string('name')->nullable();
+            $table->string('surname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->integer('adult_count')->nullable();
+            $table->integer('child_count')->nullable();
+            $table->boolean('pet')->nullable();
+            $table->boolean('blocked')->default(0);
             $table->timestamps();
         });
     }

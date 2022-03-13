@@ -31,7 +31,7 @@
                                 <DeviceMobileIcon class="h-8 w-8 inline-flex" aria-hidden="true" /><span class="inline-flex font-bold">721 892 661</span>
                             </button>
                             <div class="ml-3 relative">
-                                <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700">Rezervace</button>
+                                <router-link :to="{ name: 'reservationsForm' }" tag="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700">Rezervace</router-link>
                             </div>
                         </div>
                     </div>

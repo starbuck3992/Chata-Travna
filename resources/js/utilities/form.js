@@ -16,7 +16,9 @@ export default class Form {
         let formData = new FormData()
 
         function appendFormData(data, field) {
-            if (data instanceof File) {
+            if (data instanceof Date) {
+                formData.append(field, data.toString())
+            } else if (data instanceof File) {
                 formData.append(field, data)
             } else if (Array.isArray(data)) {
                 for (let i = 0; i < data.length; i++) {
@@ -27,7 +29,8 @@ export default class Form {
                     if (data.hasOwnProperty(key)) {
                         if (field === '') {
                             appendFormData(data[key], key)
-                        } else {
+                        }
+                        else {
                             appendFormData(data[key], field + '.' + key)
                         }
                     }

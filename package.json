@@ -31,6 +31,7 @@
         "@headlessui/vue": "^1.4.1",
         "@heroicons/vue": "^1.0.4",
         "@popperjs/core": "^2.10.1",
+        "moment": "^2.29.1",
         "v-calendar": "^3.0.0-alpha.8",
         "vue": "^3.2.8",
         "vuex": "^4.0.2",

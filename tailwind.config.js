@@ -8,6 +8,9 @@ module.exports = {
           colors: {
             'main': '#76b38f',
           },
+          fontFamily: {
+            'sansita': ['Sansita Swashed', 'font-family'],
+          },
         }
     },
     content: [

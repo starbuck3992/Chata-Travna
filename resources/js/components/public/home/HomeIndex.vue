@@ -81,9 +81,9 @@
             <div class="bg-[#0f1925]">
               <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5 text-center sm:text-left">Chata Travná</h1>
               <div class="grid grid-cols-3 md:grid-cols-none">
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2">Telefon :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">721 892 661</p></div>
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2">Email   :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">j.svardala@seznam.cz</p></div>
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2">Adresa  :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">Lipovská 1170, Jesník 790 01</p></div>
+                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Telefon :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">721 892 661</p></div>
+                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Email   :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">j.svardala@seznam.cz</p></div>
+                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Adresa  :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">Lipovská 1170, Jesník 790 01</p></div>
               </div>
             </div>
             <div class="bg-[#0f1925]">

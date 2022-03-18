@@ -1600,6 +1600,9 @@ select{
   .sm\:flex{
     display: flex;
   }
+  .sm\:inline-flex{
+    display: inline-flex;
+  }
   .sm\:hidden{
     display: none;
   }

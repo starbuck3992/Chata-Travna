@@ -20445,10 +20445,6 @@ var _hoisted_7 = {
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex-shrink-0 flex items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  "class": "block lg:hidden h-8 w-auto",
-  src: "https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg",
-  alt: "Workflow"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "hidden lg:block h-8 w-auto",
   src: "https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg",
   alt: "Workflow"
@@ -20493,16 +20489,16 @@ var _hoisted_18 = {
   "class": "px-2 pt-2 pb-3 space-y-1"
 };
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute left-0 right-0 bottom-0 top-20 w-full h-full m-auto z-10 max-w-7xl max-h-80\"><h1 class=\"text-white md:text-[120px] mb-1 font-sansita\">Chata Travná</h1><h1 class=\"text-white md:text-5xl mb-10 font-sansita\">Nějaký menší popisek</h1><div class=\"relative\"><button type=\"button\" class=\"inline-flex items-center px-8 py-2 border border-transparent font-medium rounded-md shadow-sm text-white text-lg bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white font-sansita\">Rezervace</button></div></div>", 1);
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute left-10 sm:left-0 right-0 sm:bottom-0 top-40 sm:top-10 max-w-full sm:w-full sm:h-full m-auto z-10 sm:max-w-7xl max-h-40 sm:max-h-80\"><h1 class=\"text-white text-[50px] sm:text-[120px] mb-1 font-sansita\">Chata Travná</h1><h1 class=\"text-white text-[20px] sm:text-5xl mb-10 font-sansita\">Nějaký menší popisek</h1><div class=\"relative\"><button type=\"button\" class=\"inline-flex items-center px-8 py-2 border border-transparent font-medium rounded-md shadow-sm text-white text-lg bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white font-sansita\">Rezervace</button></div></div>", 1);
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute left-0 right-0 bottom-20 mx-auto max-w-3xl max-h-64 rounded-xl shadow-xl break-words"
+  "class": "absolute left-0 right-0 bottom-20 sm:mx-auto max-w-3xl max-h-64 rounded-xl shadow-xl break-words mx-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "my-auto text-black font-medium p-8 py-8 bg-white break-words rounded-xl font-sansita"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "max-auto text-center text-2xl mb-2"
+  "class": "max-auto text-center text-[15px] sm:text-2xl mb-2"
 }, "Upozornění!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": ""
+  "class": "text-[10px] sm:text-base"
 }, "Kdyby se cokoli stalo, nebo nějaká důležitá informace pro uživatele. Mohlo by se zobrazovat toto okýnkdo, kde bude možné napsat cokoli. Pokud bude vše v pořádku vůbec tady to okénko viditelné být nemusí.")])], -1
 /* HOISTED */
 );
@@ -20524,12 +20520,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Disclosure, {
     as: "nav",
-    "class": "bg-white w-full max-w-[90vw] mx-auto z-10 rounded-b-xl min-h-[80px] sticky shadow-sm shadow-white"
+    "class": "bg-white w-full max-w-[90vw] mx-auto z-10 rounded-b-xl min-h-[50px] sm:min-h-[80px] sticky shadow-sm shadow-white"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var open = _ref.open;
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Mobile menu button"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DisclosureButton, {
-        "class": "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+        "class": "inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_6, !open ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MenuIcon, {
@@ -20627,10 +20623,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "px-8 bg-[#0f1925] relative"
+  "class": "px-4 sm:px-8 bg-[#0f1925] relative"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute -top-5 bg-[#0f1925] z-10 w-full h-10 left-0\"></div><div class=\"relative\"><div aria-hidden=\"true\" class=\"hidden absolute w-1/2 h-full bg-white lg:block\"></div><div class=\"relative bg-white lg:bg-transparent\"><div class=\"max-w-7xl mx-auto lg:grid lg:grid-cols-2\"><div class=\"max-w-2xl ml-5 mr-auto py-24 lg:py-64 lg:max-w-none\"><div class=\"lg:pr-16 text-left\"><h1 class=\"text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita\">Chata Travná</h1><p class=\"mt-4 text-xl text-gray-600 font-sansita\">Nějaký pěkný popisek chaty. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Duis risus. Etiam neque. Aliquam ornare wisi eu metus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Fusce suscipit libero eget elit.</p><div class=\"mt-6\"><a href=\"#\" class=\"inline-block border border-transparent py-3 px-8 rounded-md font-medium text-white bg-red-700 hover:bg-red-800 font-sansita\">Pokračovat na galerii</a></div></div></div></div></div><div class=\"w-full h-48 sm:h-64 lg:absolute lg:top-0 lg:right-0 lg:w-1/2 lg:h-full\"><img src=\"/storage/images/secondImage.jpg\" alt=\"\" class=\"w-full h-full object-center object-cover\"></div></div>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute -top-1 sm:-top-5 bg-[#0f1925] z-10 w-full h-4 sm:h-10 left-0\"></div><div class=\"relative\"><div aria-hidden=\"true\" class=\"hidden absolute w-1/2 h-full bg-white lg:block\"></div><div class=\"relative bg-white lg:bg-transparent\"><div class=\"max-w-7xl mx-auto lg:grid lg:grid-cols-2\"><div class=\"max-w-2xl ml-5 mr-auto py-10 sm:py-24 lg:py-64 lg:max-w-none\"><div class=\"lg:pr-16 text-left\"><h1 class=\"text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita\">Chata Travná</h1><p class=\"mt-4 px-2 md:px-0 text-md md:text-xl text-gray-600 font-sansita\">Nějaký pěkný popisek chaty. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Duis risus. Etiam neque. Aliquam ornare wisi eu metus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Fusce suscipit libero eget elit.</p><div class=\"mt-6\"><a href=\"#\" class=\"inline-block border border-transparent py-3 px-8 rounded-md font-medium text-white bg-red-700 hover:bg-red-800 font-sansita\">Pokračovat na galerii</a></div></div></div></div></div><div class=\"w-full h-48 sm:h-64 lg:absolute lg:top-0 lg:right-0 lg:w-1/2 lg:h-full\"><img src=\"/storage/images/secondImage.jpg\" alt=\"\" class=\"w-full h-full object-center object-cover\"></div></div>", 2);
 
 var _hoisted_4 = {
   "class": "bg-white px-8 pt-20 py-8"
@@ -20680,7 +20676,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_15 = {
-  "class": "grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 xl:gap-x-8 mt-5"
+  "class": "grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 xl:gap-x-8 mt-5"
 };
 var _hoisted_16 = {
   "class": "flex"
@@ -20696,54 +20692,58 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex\"><div><img class=\"h-20 w-20 text-red-700 inline-flex\" src=\"/storage/images/car.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Parkování</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">V areálu chaty je dostatek místa pro zaparkování Vašeho vozidla.</p></div></div><div class=\"flex\"><div><img class=\"h-20 w-20 text-red-700 inline-flex\" src=\"/storage/images/shower.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Sprchový kout</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">Možnost osprchování se na chatě ve sprchovém koutě.</p></div></div><div class=\"flex\"><div><img class=\"h-20 w-20 text-red-700 inline-flex\" src=\"/storage/images/tv.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Televizor</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">Na chatě je dostupný televizor.</p></div></div>", 3);
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex\"><div><img class=\"h-20 md:w-20 text-red-700 inline-flex\" src=\"/storage/images/car.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Parkování</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">V areálu chaty je dostatek místa pro zaparkování Vašeho vozidla.</p></div></div><div class=\"flex\"><div><img class=\"h-20 md:w-20 text-red-700 inline-flex\" src=\"/storage/images/shower.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Sprchový kout</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">Možnost osprchování se na chatě ve sprchovém koutě.</p></div></div><div class=\"flex\"><div><img class=\"h-20 md:w-20 w-10 text-red-700 inline-flex\" src=\"/storage/images/tv.svg\"></div><div class=\"mx-auto text-left ml-5\"><h1 class=\"text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita\">Televizor</h1><br><p class=\"text-md font-medium tracking-tight text-white sm:text-md xl:text-md font-sansita mb-5\">Na chatě je dostupný televizor.</p></div></div>", 3);
 
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", {
-  "class": "bg-[#0f1925] px-12 pt-20"
+  "class": "bg-[#0f1925] sm:px-12 pt-14 sm:pt-20"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "h-1 max-w-[1300px] border-gray-600 mx-auto border-t-2 border-dashed"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "grid grid-cols-3 pt-20"
+  "class": "grid md:grid-cols-3 grid-cols-1 pt-10 sm:pt-20"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "bg-[#0f1925]"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5"
+  "class": "text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5 text-center sm:text-left"
 }, "Chata Travná"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "grid grid-cols-3 md:grid-cols-none"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex"
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2"
 }, "Telefon :"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
+  "class": "text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
 }, "721 892 661")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex"
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2"
 }, "Email :"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
+  "class": "text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
 }, "j.svardala@seznam.cz")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex"
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2"
 }, "Adresa :"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
-}, "Lipovská 1170, Jesník 790 01")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5"
+}, "Lipovská 1170, Jesník 790 01")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "bg-[#0f1925]"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5"
+  "class": "text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5 text-center sm:text-left mt-10 sm:mt-0"
 }, "Důležité odkazy"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "grid grid-cols-3 md:grid-cols-none text-center sm:text-left"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
 }, "Rezervace")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
 }, "Kontaktujte nás")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  "class": "text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
-}, "Galerie")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("iframe", {
-  "class": "w-full h-64",
+  "class": "text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer"
+}, "Galerie")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("iframe", {
+  "class": "w-full h-64 mt-10 sm:mt-0",
   src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10178.653730612807!2d16.923471041812693!3d50.37283002143402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711e1eead70b3e3%3A0x8173e26478689831!2zVHJhdm7DoSwgNzkwIDcwIEphdm9ybsOtaw!5e0!3m2!1scs!2scz!4v1647603094173!5m2!1scs!2scz",
   style: {
     "border": "0"
@@ -20751,7 +20751,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   allowfullscreen: "",
   loading: "lazy"
 })])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "h-1 max-w-[1300px] border-gray-600 my-20 mx-auto border-t-2 border-dashed"
+  "class": "h-1 max-w-[1300px] border-gray-600 my-5 sm:my-20 mx-auto border-t-2 border-dashed"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita py-5 text-center"
 }, "© Copyright MJ-WEBSITE. All right reserved.")])], -1
@@ -20777,7 +20777,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 128
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Mini Gallery Section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Items Section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_WifiIcon, {
-    "class": "h-20 w-20 text-red-700 inline-flex"
+    "class": "h-20 md:w-20 w-10 text-red-700 inline-flex"
   })]), _hoisted_17]), _hoisted_18])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End items section "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Footer "), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" End Footer ")]);
 }
 

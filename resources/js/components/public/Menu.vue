@@ -18,9 +18,9 @@
                         </div>
                         <div class="hidden sm:block mx-auto">
                             <div class="flex space-x-4">
-                                <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-black px-3 py-2 rounded-md text-md font-medium uppercase hover:underline-offset-1 hover:underline">
+                                <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="text-black px-3 py-2 rounded-md text-md font-medium uppercase hover:underline-offset-1 hover:underline">
                                     {{ item.name }}
-                                </a>
+                                </router-link>
                             </div>
                         </div>
                         </div>
@@ -65,10 +65,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon } from '@heroicons/vue/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Domů', href: 'homeIndex', current: true },
+  { name: 'Kontaktujte nás', href: 'contact', current: false },
+  { name: 'Projects', href: 'contact', current: false },
+  { name: 'Calendar', href: 'contact', current: false },
 ]
 
 export default {

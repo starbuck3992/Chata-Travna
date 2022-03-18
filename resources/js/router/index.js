@@ -4,6 +4,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import LandingPage from "../components/public/LandingPage";
 import HomeIndex from "../components/public/home/HomeIndex";
 import ReservationForm from "../components/public/home/ReservationForm";
+import Contact from "../components/public/home/Contact";
 
 import NotFound from '../components/public/404'
 
@@ -43,6 +44,11 @@ const routes = [
                 path: 'reservations',
                 name: 'reservationsForm',
                 component: ReservationForm,
+            },
+            {
+                path: 'contact',
+                name: 'contact',
+                component: Contact,
             }
         ]
     },

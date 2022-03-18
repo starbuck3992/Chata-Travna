@@ -23,7 +23,7 @@
         </div>
         <!-- End first slide section -->
         <!-- Mini Gallery Section -->
-        <div class="bg-white px-8 pt-20">
+        <div class="bg-white px-8 pt-20 py-8">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita text-center mb-3">___ Galerie ___</h1>
             <h1 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-3xl xl:text-3xl font-sansita text-center mb-5">Na co se můžete těšit</h1>
             <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 xl:gap-x-8">
@@ -38,6 +38,68 @@
             </ul>
         </div>
         <!-- End Mini Gallery Section -->
+        <!-- Items Section -->
+        <div class="bg-[#0f1925] px-12 pt-20">
+          <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl xl:text-6xl font-sansita text-center mb-3">___ Služby ___</h1>
+          <h1 class="text-xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-3xl font-sansita text-center mb-12">Co vám můžeme nabídnout</h1>
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 xl:gap-x-8 mt-5">
+              <div class="flex">
+                <div><WifiIcon class="h-20 w-20 text-red-700 inline-flex"></WifiIcon></div>
+                <div class="mx-auto text-left ml-5">
+                  <h1 class="text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita">Wifi</h1><br>
+                  <p class="text-md font-medium tracking-tight text-white  sm:text-md xl:text-md font-sansita mb-5">Možnost připojení k internetové síti pomocí wifi z jakéhokoli zařízení.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div><img  class="h-20 w-20 text-red-700 inline-flex" src="/storage/images/car.svg" /></div>
+                <div class="mx-auto text-left ml-5">
+                  <h1 class="text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita">Parkování</h1><br>
+                  <p class="text-md font-medium tracking-tight text-white  sm:text-md xl:text-md font-sansita mb-5">V areálu chaty je dostatek místa pro zaparkování Vašeho vozidla.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div><img  class="h-20 w-20 text-red-700 inline-flex" src="/storage/images/shower.svg" /></div>
+                <div class="mx-auto text-left ml-5">
+                  <h1 class="text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita">Sprchový kout</h1><br>
+                  <p class="text-md font-medium tracking-tight text-white  sm:text-md xl:text-md font-sansita mb-5">Možnost osprchování se na chatě ve sprchovém koutě.</p>
+                </div>
+              </div>
+              <div class="flex">
+                <div><img  class="h-20 w-20 text-red-700 inline-flex" src="/storage/images/tv.svg" /></div>
+                <div class="mx-auto text-left ml-5">
+                  <h1 class="text-lg font-bold tracking-tight text-white sm:text-lg xl:text-lg font-sansita">Televizor</h1><br>
+                  <p class="text-md font-medium tracking-tight text-white  sm:text-md xl:text-md font-sansita mb-5">Na chatě je dostupný televizor.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- End items section -->
+        <!-- Footer -->
+        <footer class="bg-[#0f1925] px-12 pt-20">
+          <div class="h-1 max-w-[1300px] border-gray-600 mx-auto border-t-2 border-dashed"></div>
+          <div class="grid grid-cols-3 pt-20">
+            <div class="bg-[#0f1925]">
+              <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5">Chata Travná</h1>
+              <div class="ml-2"><h1 class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex">Telefon :</h1><p class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">721 892 661</p></div>
+              <div class="ml-2"><h1 class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex">Email   :</h1><p class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">j.svardala@seznam.cz</p></div>
+              <div class="ml-2"><h1 class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex">Adresa  :</h1><p class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">Lipovská 1170, Jesník 790 01</p></div>
+            </div>
+            <div class="bg-[#0f1925]">
+              <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5">Důležité odkazy</h1>
+              <div class="ml-2"><a class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Rezervace</a></div>
+              <div class="ml-2"><a class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Kontaktujte nás</a></div>
+              <div class="ml-2"><a class="text-lg tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Galerie</a></div>
+            </div>
+            <div>
+              <iframe class="w-full h-64" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10178.653730612807!2d16.923471041812693!3d50.37283002143402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711e1eead70b3e3%3A0x8173e26478689831!2zVHJhdm7DoSwgNzkwIDcwIEphdm9ybsOtaw!5e0!3m2!1scs!2scz!4v1647603094173!5m2!1scs!2scz" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="h-1 max-w-[1300px] border-gray-600 my-20 mx-auto border-t-2 border-dashed"></div>
+          <div>
+            <h1 class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita py-5 text-center">© Copyright MJ-WEBSITE. All right reserved.</h1>
+          </div>
+        </footer>
+        <!-- End Footer -->
     </div>
 </template>
 
@@ -80,8 +142,13 @@ const files = [
       '/storage/images/bg.jpg',
   },
 ]
+
+import { WifiIcon } from '@heroicons/vue/outline'
 export default {
-    setup() {
+  components: {
+    WifiIcon
+  },
+  setup() {
     return {
       files,
     }

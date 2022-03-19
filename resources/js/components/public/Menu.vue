@@ -45,7 +45,23 @@
             <!-- Title and Subtitle -->
             <div :class="[$route.meta.hideHeader ? 'top-24 sm:top-40' : 'top-40 sm:top-10', 'absolute left-10 sm:left-0 right-0 sm:bottom-0 max-w-full sm:w-full sm:h-full m-auto z-10 sm:max-w-7xl max-h-40 sm:max-h-80']">
                 <h1 class="text-white text-[50px] sm:text-[120px] mb-1 font-sansita">{{$route.meta.showValue}}</h1>
-                <h1 :class="[$route.meta.hideHeader ? 'hidden' : 'block','text-white text-[20px] sm:text-5xl mb-10 font-sansita']">Nějaký menší popisek</h1>
+                <!-- Tady začíná editace -->
+                <h1 :class="[$route.meta.hideHeader ? 'hidden' : 'inline-block','text-white text-[20px] sm:text-5xl mb-10 font-sansita relative']" v-show="menuTexts.subtitle.show">
+                    {{menuTexts.subtitle.text}}
+                </h1>
+                <textarea v-show="!menuTexts.subtitle.show" type="text" name="subtitle" :value="menuTexts.subtitle.text"
+                    class="text-white text-[20px] sm:text-5xl mb-10 font-sansita relative inline-block bg-transparent border-none py-0 px-0 focus:outline-none focus:border-trasparent focus:ring-0"
+                />
+                <button class="h-8 w-8 absolute rounded-full bg-blue-700 text-white z-50 inline-block" @click="menuTexts.subtitle.show = false" v-show="menuTexts.subtitle.show">
+                     <PencilIcon class="w-4 h-4 text-white mx-auto"></PencilIcon>
+                </button>
+                <button class="h-8 w-8 absolute rounded-full bg-green-700 text-white z-50 inline-block" @click="saveToDb()" v-show="!menuTexts.subtitle.show">
+                     <CheckIcon class="w-4 h-4 text-white mx-auto"></CheckIcon>
+                </button>
+                <button class="h-8 w-8 absolute rounded-full bg-red-700 text-white z-50 inline-block mt-10 my-auto" @click="discardChanges()" v-show="!menuTexts.subtitle.show">
+                     <XIcon class="w-4 h-4 text-white mx-auto"></XIcon>
+                </button>
+                <!-- Tady končí editace -->
                 <div :class="[$route.meta.hideHeader ? 'hidden' : 'block', 'relative']">
                     <button type="button" class="inline-flex items-center px-8 py-2 border border-transparent font-medium rounded-md shadow-sm text-white text-lg bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white font-sansita">Rezervace</button>
                 </div>
@@ -62,7 +78,8 @@
 
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon } from '@heroicons/vue/outline'
+import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon, PencilIcon, CheckIcon } from '@heroicons/vue/outline'
+import { reactive } from '@vue/reactivity'
 
 const navigation = [
   { name: 'Domů', href: 'homeIndex', current: true },
@@ -83,11 +100,30 @@ export default {
     BellIcon,
     MenuIcon,
     XIcon,
-    DeviceMobileIcon
+    DeviceMobileIcon,
+    PencilIcon,
+    CheckIcon
   },
   setup() {
+    const menuTexts = reactive({
+        subtitle : {
+            text : 'Nějaký menší popisek',
+            show : true
+        },
+    })
+
+    function saveToDb(){
+
+    }
+
+    function discardChanges(){
+
+    }
     return {
       navigation,
+      menuTexts,
+      saveToDb,
+      discardChanges
     }
   },
 }

@@ -34,21 +34,37 @@ const routes = [
     {
         path: '/',
         component: LandingPage,
+        meta: {
+            hideHeader: false,
+            showValue : "Chata Travná",
+        },
         children: [
             {
                 path: '',
                 name: 'homeIndex',
                 component: HomeIndex,
+                meta: {
+                    hideHeader: false,
+                    showValue : "Chata Travná",
+                },
             },
             {
                 path: 'reservations',
                 name: 'reservationsForm',
                 component: ReservationForm,
+                meta: {
+                    hideHeader: true,
+                    showValue : "Rezervace",
+                },
             },
             {
                 path: 'contact',
                 name: 'contact',
                 component: Contact,
+                meta: {
+                    hideHeader: true,
+                    showValue : "Kontakt",
+                },
             }
         ]
     },

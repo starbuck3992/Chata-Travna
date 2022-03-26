@@ -49,7 +49,7 @@ const routes = [
                 },
             },
             {
-                path: 'reservations',
+                path: 'rezervace',
                 name: 'reservationsForm',
                 component: ReservationForm,
                 meta: {

@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 //Public
 Route::post('/reservations', [ReservationController::class, 'store']);
+Route::get('/reservations', [ReservationController::class, 'index']);
+
+
 
 //Admin
 Route::get('/admin/reservations', [ReservationController::class, 'index']);

@@ -79,7 +79,7 @@
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon, PencilIcon, CheckIcon } from '@heroicons/vue/outline'
-import { reactive } from '@vue/reactivity'
+import { reactive, ref} from '@vue/reactivity'
 
 const navigation = [
   { name: 'Domů', href: 'homeIndex', current: true },

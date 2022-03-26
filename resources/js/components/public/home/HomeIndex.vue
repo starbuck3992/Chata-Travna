@@ -10,7 +10,8 @@
                 <div class="lg:pr-16 text-left">
                   <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita">Chata Travná</h1>
                   <p class="mt-4 px-2 md:px-0 text-md md:text-xl text-gray-600 font-sansita">Nějaký pěkný popisek chaty. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Duis risus. Etiam neque. Aliquam ornare wisi eu metus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Fusce suscipit libero eget elit.</p>
-                  <div class="mt-6">
+                    <div contenteditable="true" @input="test()">test</div>
+                    <div class="mt-6">
                     <a href="#" class="inline-block border border-transparent py-3 px-8 rounded-md font-medium text-white bg-red-700 hover:bg-red-800 font-sansita">Pokračovat na galerii</a>
                   </div>
                 </div>
@@ -123,7 +124,11 @@ export default {
     WifiIcon
   },
   setup() {
+      function test(){
+          console.log(event.target.getAttribute('name'));
+      }
     return {
+          test,
       files,
     }
   },

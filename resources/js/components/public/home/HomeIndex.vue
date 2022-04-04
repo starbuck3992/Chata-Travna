@@ -27,9 +27,9 @@
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita text-center mb-3">___ Galerie ___</h1>
             <h1 class="text-xl font-extrabold tracking-tight text-gray-900 sm:text-3xl xl:text-3xl font-sansita text-center mb-5">Na co se můžete těšit</h1>
             <ul role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 xl:gap-x-8">
-                <li v-for="file in files" :key="file.source" class="relative hover:scale-125 hover:z-40">
+                <li v-for="file in files" :key="file.source" class="relative hover:z-40">
                     <div class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-                        <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75 hover:scale-150" />
+                        <img :src="file.source" alt="" class="object-cover pointer-events-none group-hover:opacity-75" />
                         <button type="button" class="absolute inset-0 focus:outline-none">
                         <span class="sr-only">View details for {{ file.title }}</span>
                         </button>
@@ -118,13 +118,18 @@ const files = [
 ]
 
 import { WifiIcon } from '@heroicons/vue/outline'
+import { reactive } from '@vue/reactivity'
+import Editable from '../../Editable.vue'
 export default {
   components: {
-    WifiIcon
+    WifiIcon,
+    Editable
   },
   setup() {
+  
+
     return {
-      files,
+      files,   
     }
   },
 }

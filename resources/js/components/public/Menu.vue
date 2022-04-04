@@ -74,7 +74,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon } from '@heroicons/vue/outline'
 import Editable from '../Editable.vue'
 import {useStore} from 'vuex'
-import {computed, reactive} from 'vue'
+import {computed} from 'vue'
 
 const navigation = [
   { name: 'Domů', href: 'homeIndex', current: true },

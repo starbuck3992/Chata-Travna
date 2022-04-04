@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ReservationCollection;
+use App\Http\Resources\ReservationsPublicList;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -17,8 +18,15 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return ReservationCollection::collection(Reservation::paginate(10));
+        return ReservationsPublicList::collection(Reservation::all());
     }
+
+    public function listResource(){
+
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -30,19 +38,13 @@ class ReservationController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
         $reservation = new Reservation();
 
-        $reservation->start = Carbon::parse($request->reservationRange_start)->format('Y-m-d');
-        $reservation->end = Carbon::parse($request->reservationRange_end)->format('Y-m-d');
+        $reservation->start = Carbon::parse($request->reservationRange[0])->format('Y-m-d');
+        $reservation->end = Carbon::parse($request->reservationRange[1])->format('Y-m-d');
         $reservation->name = $request->name;
         $reservation->surname = $request->surname;
         $reservation->email = $request->email;
@@ -52,6 +54,8 @@ class ReservationController extends Controller
         $reservation->pet = $request->pet;
 
         $reservation->save();
+
+        return response()->json(['message' => 'Úspěšně jste se rezervovali. V uvedeném emailu naleznete informace o Vaší rezervaci.']);
 
     }
 

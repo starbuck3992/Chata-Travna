@@ -9,6 +9,8 @@ export default class Form {
             this[field] = data[field]
         }
 
+        console.log(this.originalData)
+
         this.errors = new Error()
     }
 
@@ -51,10 +53,14 @@ export default class Form {
     }
 
     reset() {
+        //TODO rekurze - objekty, array
         for (let field in this.originalData) {
             if (Array.isArray(this[field])) {
                 this[field] = []
-            } else {
+            } if (typeof this[field] === 'object') {
+                Object.keys(this[field]).forEach(k => this[field][k] = null);
+            }
+            else {
                 this[field] = null
             }
         }

@@ -43,8 +43,8 @@ class ReservationController extends Controller
 
         $reservation = new Reservation();
 
-        $reservation->start = Carbon::parse($request->reservationRange[0])->format('Y-m-d');
-        $reservation->end = Carbon::parse($request->reservationRange[1])->format('Y-m-d');
+        $reservation->start = $request->reservationRange_start;
+        $reservation->end = $request->reservationRange_end;
         $reservation->name = $request->name;
         $reservation->surname = $request->surname;
         $reservation->email = $request->email;

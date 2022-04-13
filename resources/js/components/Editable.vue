@@ -1,5 +1,5 @@
 <template>
-<div class="absolut inline-block h-5 w-5 sm:h-12 sm:w-10">
+<div class="inline-block h-5 w-5 sm:h-12 sm:w-10">
     <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-blue-700 text-white z-50 inline-block ml-3" @click="edit()" v-show="!editable && !$route.meta.hideHeader">
         <PencilIcon class="w-2 h-2 sm:w-4 sm:h-4 text-white mx-auto"></PencilIcon>
     </button>

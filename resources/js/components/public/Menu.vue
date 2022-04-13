@@ -101,8 +101,6 @@ export default {
   setup() {
     const store = useStore();
     const menuTexts = computed(()=> store.getters['editableModule/content']);
-    console.log(menuTexts.value.subTitle);
-     
 
     return {
       navigation,

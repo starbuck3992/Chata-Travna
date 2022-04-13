@@ -6,9 +6,21 @@
             <div class="bg-[#0f1925]">
               <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5 text-center sm:text-left">Chata Travná</h1>
               <div class="grid grid-cols-3 md:grid-cols-none">
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Telefon :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">721 892 661</p></div>
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Email   :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">j.svardala@seznam.cz</p></div>
-                <div class="ml-2"><h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Adresa  :</h1><p class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5">Lipovská 1170, Jesník 790 01</p></div>
+                <div class="ml-2">
+                  <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Telefon :</h1>
+                  <p :contenteditable="editableTexts.phone.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="phone">{{editableTexts.phone.text}}</p>
+                  <Editable :editable="editableTexts.phone.editable" :editableID="'phone'"></Editable>
+                </div>
+                <div class="ml-2">
+                  <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Email   :</h1>
+                  <p :contenteditable="editableTexts.email.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="email">{{editableTexts.email.text}}</p>
+                  <Editable :editable="editableTexts.email.editable" :editableID="'email'"></Editable>
+                </div>
+                <div class="ml-2">
+                  <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Adresa  :</h1>
+                  <p :contenteditable="editableTexts.adress.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="adress">{{editableTexts.adress.text}}</p>
+                  <Editable :editable="editableTexts.adress.editable" :editableID="'adress'"></Editable>
+                </div>
               </div>
             </div>
             <div class="bg-[#0f1925]">
@@ -30,5 +42,25 @@
         </footer>
         <!-- End Footer -->
 </template>
+<script>
+import {computed} from 'vue'
+import {useStore} from 'vuex'
+import Editable from '../Editable.vue'
+export default {
+  components: {
+    Editable
+  },
+  setup() {
+    const store = useStore();
+    const editableTexts = computed(()=> store.getters['editableModule/content']);
+
+    return {
+      editableTexts 
+    }
+  },
+}
+</script>
+
 <style scoped>
 </style>
+

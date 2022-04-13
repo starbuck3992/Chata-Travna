@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 import userModule from './modules/user'
 import loadingModule from './modules/loading'
 import messagesModule from './modules/messages'
+import editableModule from './modules/editable'
 
 const store = createStore(
     {
@@ -13,7 +14,8 @@ const store = createStore(
         modules: {
             userModule,
             loadingModule,
-            messagesModule
+            messagesModule,
+            editableModule
         },
     }
 )

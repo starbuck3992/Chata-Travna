@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReservationDate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -25,24 +26,41 @@ class ReservationStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            ''
-
+            'reservationRange_end' => ['required', 'date'],
+            'reservationRange_start' => ['required', 'date', new ReservationDate($this->reservationRange_start, $this->reservationRange_end)],
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'email' => 'required|email',
+            'phone' => 'required|string',
+            'adultCount' => 'required|numeric|min:1|max:4',
+            'childCount' => 'required|numeric|min:0|max:4',
+            'pet' => 'boolean'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.unique' => 'Tím s daným názvom už v turnaji existuje',
-            'players.*.name.required' => 'Povinné pole',
-            'players.*.name.alpha' => 'Nevalidný hodnota v poli',
-            'players.*.surname.required' => 'Povinné pole',
-            'players.*.surname.alpha' => 'Nevalidný hodnota v poli',
-            'players.*.email.required' => 'Povinné pole',
-            'players.*.email.email' => 'Nevalidný hodnota v poli',
-            'players.*.email.unique' => 'Hráč s daným emailom už v turnaji existuje',
-            'players.*.birthdate.required' => 'Povinné pole',
-            'players.*.birthdate.date' => 'Nevalidný hodnota v poli',
+            'reservationRange_start.required' => 'Povinné pole',
+            'reservationRange_start.date' => 'Nevalidní hodnota',
+            'reservationRange_end.required' => 'Povinné pole',
+            'reservationRange_end.date' => 'Nevalidní hodnota',
+            'name.required' => 'Povinné pole',
+            'name.alpha' => 'Nepovolenné znaky',
+            'surname.required' => 'Povinné pole',
+            'surname.alpha' => 'Nepovolenné znaky',
+            'email.required' => 'Povinné pole',
+            'email.email' => 'Nevalidní email',
+            'phone.required' => 'Povinné pole',
+            'phone.string' => 'Nepovolenné znaky',
+            'adultCount.required' => 'Povinné pole',
+            'adultCount.numeric' => 'Nepovolenné znaky',
+            'adultCount.min' => 'Minimální počet je: 1',
+            'adultCount.max' => 'Maximální počet je: 4',
+            'childCound.required' => 'Povinné pole',
+            'childCound.numeric' => 'Nepovolenné znaky',
+            'childCound.max' => 'Maximální počet je: 4',
+            'pet.boolean' => 'Nevalidní hodnota',
         ];
     }
 }

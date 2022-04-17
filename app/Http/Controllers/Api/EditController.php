@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-//use App\Http\Resources\EditCollection;
-use App\Http\Resources\EditsPublicList;
+use App\Http\Resources\AdminResources\EditsPublicList;
 use App\Models\Edit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class EditController extends Controller
 {
@@ -69,8 +67,7 @@ class EditController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request)
     {

@@ -3,9 +3,8 @@ import store from './store'
 import Loading from './components/Loading';
 import Success from './components/Success';
 import Exception from './components/Exception';
-import VCalendar from 'v-calendar';
-import {useStore} from "vuex";
 import {onMounted} from "vue";
+import {useStore} from "vuex";
 import Api from "./services/api";
 
 window.Vue = require('vue')
@@ -51,5 +50,4 @@ app.component('success', Success);
 app.component('exception', Exception);
 app.use(router);
 app.use(store);
-app.use(VCalendar);
 app.mount('#app');

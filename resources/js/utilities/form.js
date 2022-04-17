@@ -8,9 +8,6 @@ export default class Form {
         for (let field in data) {
             this[field] = data[field]
         }
-
-        console.log(this.originalData)
-
         this.errors = new Error()
     }
 

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ReservationCollection;
-use App\Http\Resources\ReservationsPublicList;
+use App\Http\Requests\ReservationStoreRequest;
+use App\Http\Resources\PublicResources\ReservationsList;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class ReservationController extends Controller
 {
@@ -18,7 +17,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return ReservationsPublicList::collection(Reservation::all());
+        return ReservationsList::collection(Reservation::orderBy('start', 'asc')->get());
     }
 
     public function listResource(){
@@ -38,7 +37,7 @@ class ReservationController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(ReservationStoreRequest $request)
     {
 
         $reservation = new Reservation();

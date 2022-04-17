@@ -12,8 +12,12 @@ module.exports = {
                 'sansita': ['Sansita Swashed', 'font-family'],
             },
             backgroundImage: {
-                'date-range-start': "linear-gradient(to right, #F9FAFB 50% , #0891B2 50%);",
-                'date-range-end': "linear-gradient(to left, #F9FAFB 50% , #0891B2 50%);"
+                'selected-date-range-start': "linear-gradient(to right, #ffffff 50% , #4F46E5 50%);",
+                'selected-date-range-end': "linear-gradient(to left, #ffffff 50% , #4F46E5 50%);",
+                'reserved-date-range-start': "linear-gradient(to right, #F9FAFB 50% , #DC2626 50%);",
+                'reserved-date-range-end': "linear-gradient(to left, #F9FAFB 50% , #DC2626 50%);",
+                'selected-reserved-date-range-start': "linear-gradient(to right, #DC2626 50% , #4F46E5 50%);",
+                'selected-reserved-date-range-end': "linear-gradient(to left, #DC2626 50% , #4F46E5 50%);"
             }
         }
     },

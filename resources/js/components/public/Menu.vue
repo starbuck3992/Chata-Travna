@@ -1,7 +1,7 @@
 <template>
     <div :class="[$route.meta.hideHeader ? 'h-[60vw] sm:h-[25vw]' : 'h-screen','relative w-full bg-cover bg-[url(/storage/images/bg.jpg)]']">
         <div class="absolute w-full h-full bg-black opacity-40"></div>
-            <Disclosure as="nav" class="bg-white w-full max-w-[90vw] mx-auto z-10 rounded-b-xl min-h-[50px] sm:min-h-[80px] sticky shadow-sm shadow-white" v-slot="{ open }">
+            <Disclosure as="nav" class="bg-white w-full max-w-[90vw] mx-auto z-50 rounded-b-xl min-h-[50px] sm:min-h-[80px] sticky shadow-sm shadow-white" v-slot="{ open }">
                 <div class="sm:px-6 lg:px-8">
                     <div class="relative flex items-center justify-between h-16">
                         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -29,16 +29,13 @@
                                 <span class="sr-only">View notifications</span>
                                 <DeviceMobileIcon class="h-8 w-8 inline-flex" aria-hidden="true" /><span class="inline-flex font-bold">721 892 661</span>
                             </button>
-                            <div class="ml-3 relative">
-                                <router-link :to="{ name: 'reservationsForm' }" tag="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700">Rezervace</router-link>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <DisclosurePanel class="sm:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+                    <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ item.name }}</router-link>
                 </div>
                 </DisclosurePanel>
             </Disclosure>
@@ -79,8 +76,7 @@ import {computed} from 'vue'
 const navigation = [
   { name: 'Domů', href: 'homeIndex', current: true },
   { name: 'Kontaktujte nás', href: 'contact', current: false },
-  { name: 'Projects', href: 'contact', current: false },
-  { name: 'Calendar', href: 'contact', current: false },
+  { name: 'Rezervace', href: 'reservationsForm', current: false },
 ]
 
 export default {

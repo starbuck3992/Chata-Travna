@@ -1,12 +1,12 @@
 <template>
 <div class="inline-block h-5 w-5 sm:h-12 sm:w-10">
-    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-blue-700 text-white z-50 inline-block ml-3" @click="edit()" v-show="!editable && !$route.meta.hideHeader">
+    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-blue-700 text-white z-50 inline-block ml-3" @click="edit()" v-show="!editable">
         <PencilIcon class="w-2 h-2 sm:w-4 sm:h-4 text-white mx-auto"></PencilIcon>
     </button>
-    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-green-700 text-white z-50 inline-block ml-3" @click="save()" v-show="editable && !$route.meta.hideHeader">
+    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-green-700 text-white z-50 inline-block ml-3" @click="save()" v-show="editable">
         <CheckIcon class="w-2 h-2 sm:w-4 sm:h-4 text-white mx-auto"></CheckIcon>
     </button>
-    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-red-700 text-white z-50 inline-block mt-6 sm:mt-10 my-auto ml-3" @click="discard()" v-show="editable && !$route.meta.hideHeader">
+    <button class="h-4 w-4 sm:h-8 sm:w-8 absolute rounded-full bg-red-700 text-white z-50 inline-block mt-6 sm:mt-10 my-auto ml-3" @click="discard()" v-show="editable">
         <XIcon class="w-2 h-2 sm:w-4 sm:h-4 text-white mx-auto"></XIcon>
     </button>
 </div>

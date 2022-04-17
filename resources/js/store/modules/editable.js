@@ -1,36 +1,39 @@
+import Api from "../../services/api";
+import {useStore} from "vuex";
+const store = useStore();
 const editableModule = {
     namespaced: true,
     state: {
         subTitle : {
-            text : 'Nějaký menší popisek',
+            text : '',
             editable : false
         },
         alertTitle : {
-            text : 'Upozornění!',
+            text : '',
             editable : false
         },
         alertText : {
-            text : 'Kdyby se cokoli stalo, nebo nějaká důležitá informace pro uživatele. Mohlo by se zobrazovat toto okýnkdo, kde bude možné napsat cokoli. Pokud bude vše v pořádku vůbec tady to okénko viditelné být nemusí.',
+            text : '',
             editable : false
         },
         infoTitle : {
-            text : 'Chata Travná',
+            text : '',
             editable : false
         },
         infoText : {
-            text : 'Nějaký pěkný popisek chaty. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam in lorem sit amet leo accumsan lacinia. Duis risus. Etiam neque. Aliquam ornare wisi eu metus. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nulla turpis magna, cursus sit amet, suscipit a, interdum id, felis. Nullam justo enim, consectetuer nec, ullamcorper ac, vestibulum in, elit. Vivamus porttitor turpis ac leo. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Fusce suscipit libero eget elit.',
+            text : '',
             editable : false
         },
         phone : {
-            text : '721 892 661',
+            text : '',
             editable : false
         },
         email : {
-            text : 'j.svardala@seznam.cz',
+            text : '',
             editable : false
         },
         adress : {
-            text: 'Lipovská 1170, Jeseník 790 01',
+            text: '',
             editable : false
         }
     },
@@ -42,30 +45,57 @@ const editableModule = {
     mutations: {
         changeEditable(state, id) {
             state[id].editable = true;
-            console.log('changeEditable : ' + id);
         },
-        saveToDb(state, id) {
-            let textValue = document.getElementById(id).innerHTML;
-            console.log(textValue);
-            state[id].editable = false;
-            state[id].text = textValue;
-            //console.log('saveToDb : ' + id);
+        saveToDb(state, data) {
+            state[data.name].editable = false;
+            state[data.name].text = data.text;
         },
         discardChanges(state, id) {
             state[id].editable = false;
-            document.getElementById(id).innerHTML = state[id].text;
+            document.getElementById(id).innerText = state[id].text;
         },
+        saveData(state, data) {
+            data.forEach(element => {
+                state[element.name].text = element.value;
+            });
+        }
        
     },
     actions: {
         changeEditable({commit}, payload) {
            commit('changeEditable', payload);
         },
-        saveToDb({commit}, payload) {
-            commit('saveToDb', payload);
+        saveToDb({commit}, id) {
+            //Set variables
+            let textValue = document.getElementById(id).innerText;
+            let data = {
+                "name" : id,
+                "text" : textValue
+            }
+
+            //Save to database on BE
+            Api.post('/api/admin/edits', data).then((response) => {
+                store.dispatch('messagesModule/showSuccess', response.data.message);
+            }).catch((error) => {
+                if (error.response) {
+                    if (error.response.status === 422) {
+                        form.onFail(error.response.data.errors);
+                    } else {
+                        store.dispatch('messagesModule/showException', error.response.data.message);
+                    }
+                } else {
+                    console.log(error);
+                }
+            })
+
+            //Save to database on FE (STATE)
+            commit('saveToDb', data);
         },
         discardChanges({commit}, payload) {
             commit('discardChanges', payload);
+        },
+        getDataFromDatabase({commit}, payload) {
+            commit('saveData',payload);
         },
 
     }

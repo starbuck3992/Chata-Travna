@@ -8,17 +8,17 @@
               <div class="grid grid-cols-3 md:grid-cols-none">
                 <div class="ml-2">
                   <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Telefon :</h1>
-                  <p :contenteditable="editableTexts.phone.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="phone">{{editableTexts.phone.text}}</p>
+                  <p :contenteditable="editableTexts.phone.editable" :class="[editableTexts.phone.editable ? 'border border-white focus:border-none' : 'border-none','text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5']" id="phone">{{editableTexts.phone.text}}</p>
                   <Editable :editable="editableTexts.phone.editable" :editableID="'phone'"></Editable>
                 </div>
                 <div class="ml-2">
                   <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Email   :</h1>
-                  <p :contenteditable="editableTexts.email.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="email">{{editableTexts.email.text}}</p>
+                  <p :contenteditable="editableTexts.email.editable" :class="[editableTexts.email.editable ? 'border border-white focus:border-none' : 'border-none','text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5']" id="email">{{editableTexts.email.text}}</p>
                   <Editable :editable="editableTexts.email.editable" :editableID="'email'"></Editable>
                 </div>
                 <div class="ml-2">
                   <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Adresa  :</h1>
-                  <p :contenteditable="editableTexts.adress.editable" class="text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5" id="adress">{{editableTexts.adress.text}}</p>
+                  <p :contenteditable="editableTexts.adress.editable" :class="[editableTexts.adress.editable ? 'border border-white focus:border-none' : 'border-none','text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5']" id="adress">{{editableTexts.adress.text}}</p>
                   <Editable :editable="editableTexts.adress.editable" :editableID="'adress'"></Editable>
                 </div>
               </div>

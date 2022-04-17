@@ -4,6 +4,9 @@ import Loading from './components/Loading';
 import Success from './components/Success';
 import Exception from './components/Exception';
 import VCalendar from 'v-calendar';
+import {useStore} from "vuex";
+import {onMounted} from "vue";
+import Api from "./services/api";
 
 window.Vue = require('vue')
 window.axios = require('axios')
@@ -19,6 +22,27 @@ const app = Vue.createApp({
                 '<success></success>' +
                 '<exception></exception>'
         },
+    },
+    setup() {
+        const store = useStore();
+
+        onMounted(() => {
+                try {
+                    Api.get('/api/edits').then((response) => {
+                        console.log('response: ', response.data);
+                        store.commit('editableModule/saveData', response.data);
+                    }
+                    ).catch((error) => {
+                        console.log(error);
+                    })
+                } catch (error) {
+                    if (error.response) {
+                        store.commit('messagesModule/setException', error.response.data.message);
+                    } else {
+                        console.log(error);
+                    }
+                }
+        })
     }
 })
 

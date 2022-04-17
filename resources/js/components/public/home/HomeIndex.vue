@@ -8,9 +8,9 @@
             <div class="max-w-7xl mx-auto lg:grid lg:grid-cols-2">
               <div class="max-w-2xl ml-5 mr-auto py-10 sm:py-24 lg:py-64 lg:max-w-none">
                 <div class="lg:pr-16 text-left">
-                  <h1 :contenteditable="editableTexts.infoTitle.editable" class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita inline-block" id="infoTitle">{{editableTexts.infoTitle.text}}</h1>
+                  <h1 :contenteditable="editableTexts.infoTitle.editable" :class="[editableTexts.infoTitle.editable ? 'border border-gray-600 focus:border-none' : 'border-none','text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl xl:text-6xl font-sansita inline-block pt-2']" id="infoTitle">{{editableTexts.infoTitle.text}}</h1>
                   <Editable :editable="editableTexts.infoTitle.editable" :editableID="'infoTitle'"></Editable>
-                  <p :contenteditable="editableTexts.infoText.editable" class="mt-4 px-2 md:px-0 text-md md:text-xl text-gray-600 font-sansita" id="infoText">{{editableTexts.infoText.text}}</p>
+                  <p :contenteditable="editableTexts.infoText.editable" :class="[editableTexts.infoText.editable ? 'border border-gray-600 focus:border-none' : 'border-none','mt-4 px-2 md:px-0 text-md md:text-xl text-gray-600 font-sansita']" id="infoText">{{editableTexts.infoText.text}}</p>
                   <Editable :editable="editableTexts.infoText.editable" :editableID="'infoText'"></Editable>
                   <div class="mt-6">
                     <a href="#" class="inline-block border border-transparent py-3 px-8 rounded-md font-medium text-white bg-red-700 hover:bg-red-800 font-sansita">Pokračovat na galerii</a>

@@ -10,8 +10,8 @@ import NotFound from '../components/public/404'
 
 //Admin
 import AdminPage from '../components/admin/AdminPage'
-import Dashboard from '../components/admin/Dashboard'
-import AdminReservationsIndex from '../components/admin/reservations/Index'
+import Reservations from '../components/admin/Reservations'
+import Settings from '../components/admin/Settings'
 
 //Routes
 const routes = [
@@ -21,14 +21,14 @@ const routes = [
         children: [
             {
                 path: '',
-                name: 'dashboard',
-                component: Dashboard,
+                name: 'reservations',
+                component: Reservations,
             },
             {
-                path: 'reservations',
-                name: 'adminReservationsIndex',
-                component: AdminReservationsIndex,
-            }
+                path: 'settings',
+                name: 'settings',
+                component: Settings,
+            },
         ]
     },
     {

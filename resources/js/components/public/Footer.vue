@@ -26,9 +26,8 @@
             <div class="bg-[#0f1925]">
               <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl xl:text-4xl font-sansita mb-5 text-center sm:text-left mt-10 sm:mt-0">Důležité odkazy</h1>
               <div class="grid grid-cols-3 md:grid-cols-none text-center sm:text-left">
-                <div class="ml-2"><a class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Rezervace</a></div>
-                <div class="ml-2"><a class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Kontaktujte nás</a></div>
-                <div class="ml-2"><a class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Galerie</a></div>
+                <div class="ml-2"><router-link :to="{ name : 'reservationsForm'}" class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Rezervace</router-link></div>
+                <div class="ml-2"><router-link :to="{ name : 'contact'}" class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex hover:text-gray-400 cursor-pointer">Kontaktujte nás</router-link></div>
               </div>
             </div>
             <div>

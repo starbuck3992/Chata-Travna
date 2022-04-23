@@ -11,25 +11,24 @@
           <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Kontaktujte nás</h2>
           <p class="mt-3 text-lg leading-6 text-gray-500">Po vypnění a odeslání formuláře Váši zprávu obdržíme a pokusíme se jí co nejdříve vyřídit.</p>
           <dl class="mt-8 text-base text-gray-500">
-            <div>
-              <dt class="sr-only">Adress</dt>
-              <dd>
-                <p>Lipovská 1170</p>
-                <p>Jeseník, 790 01</p>
-              </dd>
-            </div>
             <div class="mt-6">
               <dt class="sr-only">Phone number</dt>
               <dd class="flex">
                 <PhoneIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                <span class="ml-3"> 721 892 661 </span>
+                <span class="ml-3"> {{editableTexts.phone.text}} </span>
               </dd>
             </div>
             <div class="mt-3">
               <dt class="sr-only">Email</dt>
               <dd class="flex">
                 <MailIcon class="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                <span class="ml-3"> j.svardala@seznam.cz </span>
+                <span class="ml-3"> {{editableTexts.email.text}} </span>
+              </dd>
+            </div>
+            <div class="mt-8">
+              <dt class="sr-only">Adress</dt>
+              <dd>
+                <p>{{editableTexts.adress.text}}</p>
               </dd>
             </div>
           </dl>
@@ -67,11 +66,20 @@
 
 <script>
 import { MailIcon, PhoneIcon } from '@heroicons/vue/outline'
-
+import {computed} from 'vue'
+import {useStore} from 'vuex'
 export default {
   components: {
     MailIcon,
     PhoneIcon,
+  },
+  setup() {
+    const store = useStore();
+    const editableTexts = computed(()=> store.getters['editableModule/content']);
+
+    return {
+      editableTexts 
+    }
   },
 }
 </script>

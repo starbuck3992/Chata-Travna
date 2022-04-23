@@ -14,7 +14,7 @@
                         </div>
                         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="flex-shrink-0 flex items-center">
-                            <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+                            <img class="hidden lg:block h-12 w-auto" src="/storage/images/icon.png" alt="Workflow" />
                         </div>
                         <div class="hidden sm:block mx-auto">
                             <div class="flex space-x-4">
@@ -27,7 +27,7 @@
                         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                             <button type="button" class="p-1 rounded-full text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white cursor-default">
                                 <span class="sr-only">View notifications</span>
-                                <DeviceMobileIcon class="h-8 w-8 inline-flex" aria-hidden="true" /><span class="inline-flex font-bold">721 892 661</span>
+                                <DeviceMobileIcon class="h-8 w-8 inline-flex" aria-hidden="true" /><span class="inline-flex font-bold">{{menuTexts.phone.text}}</span>
                             </button>
                         </div>
                     </div>

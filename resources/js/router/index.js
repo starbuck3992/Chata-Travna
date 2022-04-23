@@ -13,6 +13,11 @@ import AdminPage from '../components/admin/AdminPage'
 import Reservations from '../components/admin/Reservations'
 import Settings from '../components/admin/Settings'
 
+//Auth
+import Login from '../components/auth/Login'
+import ForgotPassword from '../components/auth/ForgotPassword'
+import ResetPassword from '../components/auth/ResetPassword'
+
 //Routes
 const routes = [
     {
@@ -65,9 +70,27 @@ const routes = [
                     hideHeader: true,
                     showValue : "Kontakt",
                 },
-            }
+            },
         ]
     },
+
+    //Auth
+    {
+        path: '/auth/login',
+        name: 'login',
+        component: Login,
+    },
+    {
+        path: '/auth/forgotPassword',
+        name: 'forgotPassword',
+        component: ForgotPassword,
+    },
+    {
+        path: '/auth/resetPassword',
+        name: 'resetPassword',
+        component: ResetPassword,
+    }
+
 ];
 
 const router = createRouter({

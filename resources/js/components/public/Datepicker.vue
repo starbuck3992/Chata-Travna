@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+    <div v-cloak class="text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
         <div class="flex items-center text-gray-900">
             <button @click="switchMonth(-1)" :disabled="isPreviousMonthDisabled" type="button"
                     class="-m-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500">
@@ -36,7 +36,7 @@
 <script>
 
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroicons/vue/solid";
-import {computed, onMounted, reactive, ref, watch} from "vue";
+import {computed, onMounted, reactive, ref} from "vue";
 import {DateTime} from "luxon";
 
 export default {
@@ -77,18 +77,18 @@ export default {
             open: 'hover:bg-gray-100',
             disabled: 'text-gray-400 bg-gray-50',
             reserved: {
-                range: 'text-white bg-red-600',
-                start: 'text-white bg-reserved-date-range-start',
-                end: 'text-white bg-reserved-date-range-end',
+                range: 'bg-red-600',
+                start: 'bg-reserved-date-range-start',
+                end: 'bg-reserved-date-range-end',
             },
             selected: {
                 range: 'text-white bg-indigo-600',
-                start: 'text-white bg-selected-date-range-start',
-                end: 'text-white bg-selected-date-range-end',
+                start: 'text-gray-900 bg-selected-date-range-start',
+                end: 'text-gray-900 bg-selected-date-range-end',
             },
             selectedReserved: {
-                start: 'text-white bg-selected-reserved-date-range-start',
-                end: 'text-white bg-selected-reserved-date-range-end',
+                start: 'text-gray-600 bg-selected-reserved-date-range-start',
+                end: 'text-gray-600 bg-selected-reserved-date-range-end',
             }
         }
 
@@ -206,9 +206,10 @@ export default {
             }
         });
 
-        watch(() => props.reservedDates, () => {
+        onMounted(() => {
             renderMonth()
-        });
+            }
+        )
 
         function isCurrentMonth(date) {
             return date.month === selectedMonth.date.month;
@@ -253,7 +254,6 @@ export default {
         function switchMonth(step) {
             selectedMonth.date = selectedMonth.date.plus({months: step});
             renderMonth();
-            //emit('switchMonth');
         }
 
         function renderMonth() {
@@ -307,7 +307,6 @@ export default {
             } else {
                 clearRange();
             }
-
             emit('update:range', {
                 start: selectedRange.start,
                 end: selectedRange.end
@@ -315,7 +314,11 @@ export default {
         }
 
         function isRangeValid() {
-            if (selectedRange.start && selectedRange.end) {
+            if(props.reservedDates.some((d) => {
+                return d.start === selectedRange.start
+            })){
+                return false;
+            } else if (selectedRange.start && selectedRange.end) {
                 if (props.reservedDates && props.reservedDates.some((d) => {
                     return selectedRange.start <= d.start && d.end <= selectedRange.end;
                 })) {
@@ -408,6 +411,7 @@ export default {
             switchMonth,
             selectRange,
             clearRange,
+            renderMonth
         }
     }
 }

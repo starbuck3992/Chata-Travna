@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\AdminResources;
+namespace App\Http\Resources\PublicResources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EditsPublicList extends JsonResource
+class FieldsList extends JsonResource
 {
     /**
      * Transform the resource into an array.

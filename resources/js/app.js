@@ -25,22 +25,13 @@ const app = Vue.createApp({
     setup() {
         const store = useStore();
 
-        onMounted(() => {
-                try {
-                    Api.get('/api/edits').then((response) => {
-                        console.log('response: ', response.data);
-                        store.commit('editableModule/saveData', response.data);
-                    }
-                    ).catch((error) => {
-                        console.log(error);
-                    })
-                } catch (error) {
-                    if (error.response) {
-                        store.commit('messagesModule/setException', error.response.data.message);
-                    } else {
-                        console.log(error);
-                    }
-                }
+        onMounted(async () => {
+            try {
+                const response = await Api.get('/api/fields');
+                store.commit('editableModule/setFields', response.data);
+            } catch (e) {
+                store.commit('messagesModule/setException', e);
+            }
         })
     }
 })

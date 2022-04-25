@@ -33,8 +33,8 @@ class ReservationStoreRequest extends FormRequest
             'email' => 'required|email',
             'phone' => 'required|string',
             'adultCount' => 'required|numeric|min:1|max:4',
-            'childCount' => 'required|numeric|min:0|max:4',
-            'pet' => 'boolean'
+            'childCount' => 'required|numeric|max:4',
+            'pet' => 'string'
         ];
     }
 
@@ -57,10 +57,10 @@ class ReservationStoreRequest extends FormRequest
             'adultCount.numeric' => 'Nepovolenné znaky',
             'adultCount.min' => 'Minimální počet je: 1',
             'adultCount.max' => 'Maximální počet je: 4',
-            'childCound.required' => 'Povinné pole',
-            'childCound.numeric' => 'Nepovolenné znaky',
-            'childCound.max' => 'Maximální počet je: 4',
-            'pet.boolean' => 'Nevalidní hodnota',
+            'childCount.required' => 'Povinné pole',
+            'childCount.numeric' => 'Nepovolenné znaky',
+            'childCount.max' => 'Maximální počet je: 4',
+            'pet.string' => 'Nevalidní hodnota',
         ];
     }
 }

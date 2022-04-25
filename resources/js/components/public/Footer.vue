@@ -18,8 +18,8 @@
                 </div>
                 <div class="ml-2">
                   <h1 class="text-sm tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 sm:inline-flex">Adresa  :</h1>
-                  <p :contenteditable="editableTexts.adress.editable" :class="[editableTexts.adress.editable ? 'border border-white focus:border-none' : 'border-none','text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5']" id="adress">{{editableTexts.adress.text}}</p>
-                  <Editable :editable="editableTexts.adress.editable" :editableID="'adress'"></Editable>
+                  <p :contenteditable="editableTexts.address.editable" :class="[editableTexts.address.editable ? 'border border-white focus:border-none' : 'border-none','text-xs tracking-tight text-white sm:text-lg xl:text-lg font-sansita text-center mb-2 inline-flex ml-5']" id="address">{{editableTexts.address.text}}</p>
+                  <Editable :editable="editableTexts.address.editable" :editableID="'address'"></Editable>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@ export default {
     const editableTexts = computed(()=> store.getters['editableModule/content']);
 
     return {
-      editableTexts 
+      editableTexts
     }
   },
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ReservationController;
-use App\Http\Controllers\Api\EditController;
+use App\Http\Controllers\Api\FieldController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 //Public
 Route::post('/reservations', [ReservationController::class, 'store']);
 Route::get('/reservations', [ReservationController::class, 'index']);
-Route::get('/edits', [EditController::class, 'index']);
+Route::get('/fields', [FieldController::class, 'index']);
 
 
 //Admin
 Route::get('/admin/reservations', [ReservationController::class, 'index']);
-Route::post('/admin/edits', [EditController::class, 'update']);
+Route::post('/admin/fields', [FieldController::class, 'update']);

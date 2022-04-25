@@ -7,24 +7,29 @@ use App\Http\Requests\ReservationStoreRequest;
 use App\Http\Resources\PublicResources\ReservationsList;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Throwable;
 
 class ReservationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
-     */
     public function index()
     {
-        return ReservationsList::collection(Reservation::orderBy('start', 'asc')->get());
+        try {
+
+            return ReservationsList::collection(Reservation::orderBy('start', 'asc')->get());
+
+        } catch (Throwable $e) {
+
+            report($e);
+            return response()->json(['message' => 'Nastala chyba při načítání rezervací'], 500);
+
+        }
     }
 
-    public function listResource(){
+    public function listResource()
+    {
 
 
     }
-
 
 
     /**
@@ -40,28 +45,36 @@ class ReservationController extends Controller
     public function store(ReservationStoreRequest $request)
     {
 
-        $reservation = new Reservation();
+        try {
 
-        $reservation->start = $request->reservationRange_start;
-        $reservation->end = $request->reservationRange_end;
-        $reservation->name = $request->name;
-        $reservation->surname = $request->surname;
-        $reservation->email = $request->email;
-        $reservation->phone = $request->phone;
-        $reservation->adult_count = $request->adultCount;
-        $reservation->child_count = $request->childCount;
-        $reservation->pet = $request->pet;
+            $reservation = new Reservation();
 
-        $reservation->save();
+            $reservation->start = $request->reservationRange_start;
+            $reservation->end = $request->reservationRange_end;
+            $reservation->name = $request->name;
+            $reservation->surname = $request->surname;
+            $reservation->email = $request->email;
+            $reservation->phone = $request->phone;
+            $reservation->adult_count = $request->adultCount;
+            $reservation->child_count = $request->childCount;
+            $reservation->pet = $request->pet;
 
-        return response()->json(['message' => 'Úspěšně jste se rezervovali. V uvedeném emailu naleznete informace o Vaší rezervaci.']);
+            $reservation->save();
 
+            return response()->json(['message' => 'Úspěšně jste se rezervovali. V uvedeném emailu naleznete informace o Vaší rezervaci.']);
+
+        } catch (Throwable $e) {
+
+            report($e);
+            return response()->json(['message' => 'Nastala chyba při rezervování'], 500);
+
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -72,7 +85,7 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -83,8 +96,8 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -95,7 +108,7 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

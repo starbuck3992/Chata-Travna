@@ -32,7 +32,7 @@ const editableModule = {
             text : '',
             editable : false
         },
-        adress : {
+        address : {
             text: '',
             editable : false
         }
@@ -43,61 +43,43 @@ const editableModule = {
         },
     },
     mutations: {
-        changeEditable(state, id) {
-            state[id].editable = true;
-        },
-        saveToDb(state, data) {
+        setField(state, data) {
             state[data.name].editable = false;
             state[data.name].text = data.text;
         },
-        discardChanges(state, id) {
-            state[id].editable = false;
-            document.getElementById(id).innerText = state[id].text;
+        setEditable(state, id) {
+            state[id].editable = true;
         },
-        saveData(state, data) {
+        setFields(state, data) {
             data.forEach(element => {
                 state[element.name].text = element.value;
             });
-        }
-       
+        },
+        discardChanges(state, id) {
+            state[id].editable = false;
+        },
     },
     actions: {
-        changeEditable({commit}, payload) {
-           commit('changeEditable', payload);
-        },
-        saveToDb({commit}, id) {
-            //Set variables
-            let textValue = document.getElementById(id).innerText;
-            let data = {
-                "name" : id,
-                "text" : textValue
-            }
-
-            //Save to database on BE
-            Api.post('/api/admin/edits', data).then((response) => {
-                store.dispatch('messagesModule/showSuccess', response.data.message);
-            }).catch((error) => {
-                if (error.response) {
-                    if (error.response.status === 422) {
-                        form.onFail(error.response.data.errors);
-                    } else {
-                        store.dispatch('messagesModule/showException', error.response.data.message);
-                    }
-                } else {
-                    console.log(error);
+        async saveData({commit, dispatch}, id) {
+            try {
+                //Set variables
+                let textValue = document.getElementById(id).innerText;
+                let data = {
+                    "name" : id,
+                    "text" : textValue
                 }
-            })
-
-            //Save to database on FE (STATE)
-            commit('saveToDb', data);
+                //Save to database on BE
+                await Api.post('/api/admin/fields', data);
+                //Save to database on FE (STATE)
+                commit('setField', data);
+            } catch (e) {
+                commit('messagesModule/setException', e, {root: true});
+            }
         },
-        discardChanges({commit}, payload) {
+        discardChanges({commit, state}, payload) {
+            document.getElementById(payload).innerText = state[payload].text;
             commit('discardChanges', payload);
-        },
-        getDataFromDatabase({commit}, payload) {
-            commit('saveData',payload);
-        },
-
+        }
     }
 }
 

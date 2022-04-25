@@ -13,7 +13,7 @@ class CreateEditsTable extends Migration
      */
     public function up()
     {
-        Schema::create('edits', function (Blueprint $table) {
+        Schema::create('fields', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->longText('value');
@@ -28,6 +28,6 @@ class CreateEditsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('edits');
+        Schema::dropIfExists('fields');
     }
 }

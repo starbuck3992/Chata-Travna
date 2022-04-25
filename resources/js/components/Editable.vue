@@ -37,10 +37,10 @@ export default {
         const store = useStore();
 
         function edit(){
-            store.dispatch('editableModule/changeEditable', props.editableID);
+            store.commit('editableModule/setEditable', props.editableID);
         }
         function save(){
-            store.dispatch('editableModule/saveToDb', props.editableID);
+            store.dispatch('editableModule/saveData', props.editableID);
         }
         function discard(){
             store.dispatch('editableModule/discardChanges', props.editableID);

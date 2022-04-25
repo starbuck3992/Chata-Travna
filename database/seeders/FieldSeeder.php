@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class EditSeeder extends Seeder
+class FieldSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class EditSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('edits')->insert([
+        DB::table('fields')->insert([
             [
                 'name' => 'subTitle',
                 'value' => 'Nějaký popisek'
@@ -46,7 +46,7 @@ class EditSeeder extends Seeder
                 'value' => 'j.svardala@seznam.cz'
             ],
             [
-                'name' => 'adress',
+                'name' => 'address',
                 'value' => 'Lipovská 1170, Jeseník 790 01'
             ]
         ]);

@@ -4,7 +4,7 @@ namespace App\Http\Resources\AdminResources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SettingPublicList extends JsonResource
+class SettingsList extends JsonResource
 {
     /**
      * Transform the resource into an array.

@@ -36,7 +36,7 @@ class ReservationDate implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         if($this->start_date >= $this->end_date){
             return false;

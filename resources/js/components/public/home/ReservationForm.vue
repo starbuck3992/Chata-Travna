@@ -1,5 +1,6 @@
 <template>
-    <form @submit.prevent="submit" class="space-y-8 divide-y divide-gray-200 max-w-5xl mx-auto">
+    <form v-if="reservedDates.length" @submit.prevent="submit"
+          class="space-y-8 divide-y divide-gray-200 max-w-5xl mx-auto">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-4 gap-6">
@@ -7,7 +8,9 @@
                         Vyberte termín
                     </div>
                     <div class="col-span-2">
-                    <Datepicker ref="datepicker" v-model:range="form.reservationRange" :reserved-dates="reservedDates" :min-date="minDate" :max-date="maxDate"></Datepicker>
+                        <Datepicker ref="datepicker" v-model:range="form.reservationRange"
+                                    :reserved-dates="reservedDates" :min-date="minDate"
+                                    :max-date="maxDate"></Datepicker>
                         <div
                             v-if="form.errors.has('reservationRange_start')"
                             class="mt-1 text-sm text-red-600"
@@ -34,6 +37,11 @@
                                id="first-name"
                                autocomplete="given-name"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('name')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('name')"
+                        ></div>
                     </div>
 
                     <div class="col-span-2">
@@ -43,6 +51,11 @@
                                id="last-name"
                                autocomplete="family-name"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('surname')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('surname')"
+                        ></div>
                     </div>
 
                     <div class="col-span-2">
@@ -52,6 +65,11 @@
                                id="email-address"
                                autocomplete="email"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('email')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('email')"
+                        ></div>
                     </div>
 
                     <div class="col-span-2">
@@ -60,6 +78,11 @@
                         <input required v-model="form.phone" type="tel" name="phone-number"
                                id="phone-number"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('phone')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('phone')"
+                        ></div>
                     </div>
                     <div class="col-span-2">
                         <label for="adult-count"
@@ -69,6 +92,11 @@
                                name="adult-count"
                                id="adult-count"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('adultCount')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('adultCount')"
+                        ></div>
                     </div>
 
                     <div class="col-span-2">
@@ -79,6 +107,11 @@
                                name="child-count"
                                id="child-count"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
+                        <div
+                            v-if="form.errors.has('childCount')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('childCount')"
+                        ></div>
                     </div>
 
                     <div class="col-span-4">
@@ -90,6 +123,11 @@
                                     mazlíček</label>
                             </div>
                         </div>
+                        <div
+                            v-if="form.errors.has('pet')"
+                            class="mt-1 text-sm text-red-600"
+                            v-text="form.errors.get('pet')"
+                        ></div>
                     </div>
                 </div>
 
@@ -104,9 +142,6 @@
                 <p>Odesláním rezervačního formuláře souhlasíte se zpracováním osobních údajů dle
                     <b>GDPR</b>.
                 </p>
-                <button @click="clearRange">CLEAR RANGE</button>
-
-
                 <button :disabled="!validateForm" type="submit"
                         class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Rezervovat
@@ -124,27 +159,25 @@ import Form from "../../../utilities/form";
 import Api from "../../../services/api";
 import Datepicker from "../Datepicker";
 import {DateTime} from "luxon";
-
-const reservedDates = ['2022-04-16','2022-04-18']
-
+import router from "../../../router";
 
 export default {
     components: {Datepicker, ChevronLeftIcon, ChevronRightIcon},
     setup() {
         const store = useStore();
         const form = reactive(new Form({
-                title: '',
-                reservationRange: {
-                    start: '',
-                    end: ''
-                },
-                name: 'aaa',
-                surname: 'a',
-                email: 'mcvespr@gmail.com',
-                phone: 123456789,
-                adultCount: 1,
-                childCount: 0,
-                pet: 0
+            title: '',
+            reservationRange: {
+                start: '',
+                end: ''
+            },
+            name: '',
+            surname: '',
+            email: '',
+            phone: '',
+            adultCount: 1,
+            childCount: 0,
+            pet: 0
         }));
 
         const reservedDates = ref([]);
@@ -159,91 +192,67 @@ export default {
         const maxDate = currentDate.startOf('day').plus({years: 1}).toISODate();
 
         const currentReservation = computed(() => {
-                if (form.reservationRange.start && form.reservationRange.end) {
-                    let start = DateTime.fromISO(form.reservationRange.start);
-                    let end = DateTime.fromISO(form.reservationRange.end);
-
-                    let days = end.diff(start, 'days').toObject().days;
-                    let totalPrice = (reservationSettings.pricePerNight * days).toLocaleString('cs');
-
-                    return {
-                        start: start.toFormat('d. M. y'),
-                        end: end.toFormat('d. M. y'),
-                        totalNights: days,
-                        pricePerNight: `${reservationSettings.pricePerNight.toLocaleString('cs')} Kč`,
-                        totalPrice: `${totalPrice} Kč`
-                    }
-                } else {
-                    return {
-                        start: '-',
-                        end: '-',
-                        totalNights: '0',
-                        pricePerNight: `${reservationSettings.pricePerNight.toLocaleString('cs')} Kč`,
-                        totalPrice: '0 Kč'
-                    }
+            let start = (form.reservationRange.start) ? DateTime.fromISO(form.reservationRange.start) : '';
+            let end = (form.reservationRange.end) ? DateTime.fromISO(form.reservationRange.end) : '';
+            let days = (form.reservationRange.start && form.reservationRange.end) ? end.diff(start, 'days').toObject().days : '';
+                return {
+                    start: (start) ? start.toFormat('d. M. y') : '-',
+                    end: (end) ? end.toFormat('d. M. y') : '-',
+                    totalNights: (days) ? end.diff(start, 'days').toObject().days : '-',
+                    pricePerNight: `${reservationSettings.pricePerNight.toLocaleString('cs')} Kč`,
+                    totalPrice: `${(days) ? (reservationSettings.pricePerNight * days).toLocaleString('cs') : 0} Kč`
                 }
             }
         )
 
         const validateForm = computed(() => {
             //TODO deep rekurze
-            return !!form.reservationRange.start && !!form.reservationRange.end && !!form.name && !!form.surname && !!form.email && !!form.phone && !!form.adultCount
+            return !!form.reservationRange.start && !!form.reservationRange.end
         })
 
-        onMounted(() => {
-                Api.get('/api/reservations').then(response => {
-                        reservedDates.value = response.data.flat()
-                    }
-                ).catch((error) => {
-                        console.log(error);
-                })
+        onMounted(async () => {
+                await getReservedDates();
             }
         )
 
-        function getReservedDates() {
-            Api.get('/api/reservations').then(response => {
-
-                    reservedDates.value = response.data.flat()
-                }
-            ).catch((error) => {
-                console.log(error);
-            })
+        async function getReservedDates() {
+            try {
+                const response = await Api.get('/api/reservations');
+                reservedDates.value = response.data;
+            } catch (e) {
+                await store.dispatch('messagesModule/showException', e.response.data.message);
+                await router.push({name: 'homeIndex'});
+            }
         }
 
-
-        function submit() {
-            Api.post('/api/reservations', form.objectToFormData()).then((response) => {
-                store.dispatch('messagesModule/showSuccess', response.data.message);
+        async function submit() {
+            try {
+                const response = await Api.post('/api/reservations', form.objectToFormData());
+                await store.dispatch('messagesModule/showSuccess', response.data.message);
                 datepicker.value.clearRange();
+                reservedDates.value.push(form.reservationRange);
+                datepicker.value.renderMonth();
                 form.onSuccess();
-            }).catch((error) => {
-                if (error.response) {
-                    if (error.response.status === 422) {
-                        form.onFail(error.response.data.errors);
-                    } else {
-                        store.dispatch('messagesModule/showException', error.response.data.message);
-                    }
+            } catch (e) {
+                if (e.response && e.response.status === 422) {
+                    form.onFail(e.response.data.errors);
                 } else {
-                    console.log(error);
+                    await store.dispatch('messagesModule/showException', e.response.data.message);
                 }
-            })
+            }
         }
 
         return {
             form,
+            datepicker,
             reservedDates,
             minDate,
             maxDate,
             currentReservation,
-            getReservedDates,
             validateForm,
-            submit,
-            datepicker
+            getReservedDates,
+            submit
         }
     }
 }
 </script>
-
-<style scoped>
-
-</style>

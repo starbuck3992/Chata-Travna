@@ -55,7 +55,9 @@ export default class Form {
             if (Array.isArray(this[field])) {
                 this[field] = []
             } if (typeof this[field] === 'object') {
-                Object.keys(this[field]).forEach(k => this[field][k] = null);
+                Object.keys(this[field]).forEach(k =>
+                    this[field][k] = null
+                );
             }
             else {
                 this[field] = null

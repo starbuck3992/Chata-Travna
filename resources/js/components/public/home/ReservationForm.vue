@@ -1,11 +1,11 @@
 <template>
-    <form v-if="reservedDates.length" @submit.prevent="submit"
+    <form v-if="loaded" @submit.prevent="submit"
           class="space-y-8 divide-y divide-gray-200 max-w-5xl mx-auto">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-4 gap-6">
                     <div class="col-span-4">
-                        Vyberte termín
+                        Termín
                     </div>
                     <div class="col-span-2">
                         <Datepicker ref="datepicker" v-model:range="form.reservationRange"
@@ -177,8 +177,9 @@ export default {
             phone: '',
             adultCount: 1,
             childCount: 0,
-            pet: 0
+            pet: ''
         }));
+        const loaded = ref(false);
 
         const reservedDates = ref([]);
 
@@ -192,9 +193,9 @@ export default {
         const maxDate = currentDate.startOf('day').plus({years: 1}).toISODate();
 
         const currentReservation = computed(() => {
-            let start = (form.reservationRange.start) ? DateTime.fromISO(form.reservationRange.start) : '';
-            let end = (form.reservationRange.end) ? DateTime.fromISO(form.reservationRange.end) : '';
-            let days = (form.reservationRange.start && form.reservationRange.end) ? end.diff(start, 'days').toObject().days : '';
+                let start = (form.reservationRange.start) ? DateTime.fromISO(form.reservationRange.start) : '';
+                let end = (form.reservationRange.end) ? DateTime.fromISO(form.reservationRange.end) : '';
+                let days = (form.reservationRange.start && form.reservationRange.end) ? end.diff(start, 'days').toObject().days : '';
                 return {
                     start: (start) ? start.toFormat('d. M. y') : '-',
                     end: (end) ? end.toFormat('d. M. y') : '-',
@@ -211,19 +212,16 @@ export default {
         })
 
         onMounted(async () => {
-                await getReservedDates();
+                try {
+                    const response = await Api.get('/api/reservations');
+                    reservedDates.value = response.data;
+                    loaded.value = true;
+                } catch (e) {
+                    await store.dispatch('messagesModule/showException', e.response.data.message);
+                    await router.push({name: 'homeIndex'});
+                }
             }
         )
-
-        async function getReservedDates() {
-            try {
-                const response = await Api.get('/api/reservations');
-                reservedDates.value = response.data;
-            } catch (e) {
-                await store.dispatch('messagesModule/showException', e.response.data.message);
-                await router.push({name: 'homeIndex'});
-            }
-        }
 
         async function submit() {
             try {
@@ -234,6 +232,7 @@ export default {
                 datepicker.value.renderMonth();
                 form.onSuccess();
             } catch (e) {
+                console.log(1)
                 if (e.response && e.response.status === 422) {
                     form.onFail(e.response.data.errors);
                 } else {
@@ -250,7 +249,7 @@ export default {
             maxDate,
             currentReservation,
             validateForm,
-            getReservedDates,
+            loaded,
             submit
         }
     }

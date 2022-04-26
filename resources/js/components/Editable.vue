@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { toRefs } from '@vue/reactivity'
+import { toRefs } from 'vue'
 import { XIcon, PencilIcon, CheckIcon } from '@heroicons/vue/outline'
 import {useStore} from 'vuex'
 export default {

@@ -1,4 +1,5 @@
 import Error from "./error";
+import Api from "../services/api";
 
 export default class Form {
 
@@ -28,8 +29,7 @@ export default class Form {
                     if (data.hasOwnProperty(key)) {
                         if (field === '') {
                             appendFormData(data[key], key)
-                        }
-                        else {
+                        } else {
                             appendFormData(data[key], field + '.' + key)
                         }
                     }
@@ -50,20 +50,24 @@ export default class Form {
     }
 
     reset() {
+        try {
         //TODO rekurze - objekty, array
         for (let field in this.originalData) {
             if (Array.isArray(this[field])) {
                 this[field] = []
-            } if (typeof this[field] === 'object') {
-                Object.keys(this[field]).forEach(k =>
-                    this[field][k] = null
-                );
             }
-            else {
-                this[field] = null
+            if (typeof this[field] === 'object') {
+                Object.keys(this[field]).forEach(k =>
+                    this[field][k] = ''
+                );
+            } else {
+                this[field] = ''
             }
         }
         this.errors.clear()
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     onSuccess() {

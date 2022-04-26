@@ -46,8 +46,8 @@ class ReservationDate implements Rule
             return false;
         }
         else {
-            return Reservation::whereDate('start', '>', $this->start_date)
-                ->whereDate('end', '<', $this->end_date)->doesntExist();
+            return Reservation::whereDate('start', '>=', $this->start_date)
+                ->whereDate('end', '<=', $this->end_date)->doesntExist();
         }
     }
 

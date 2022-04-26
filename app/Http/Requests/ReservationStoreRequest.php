@@ -34,7 +34,7 @@ class ReservationStoreRequest extends FormRequest
             'phone' => 'required|string',
             'adultCount' => 'required|numeric|min:1|max:4',
             'childCount' => 'required|numeric|max:4',
-            'pet' => 'string'
+            'pet' => 'nullable|string'
         ];
     }
 

@@ -57,7 +57,7 @@ class ReservationController extends Controller
             $reservation->phone = $request->phone;
             $reservation->adult_count = $request->adultCount;
             $reservation->child_count = $request->childCount;
-            $reservation->pet = $request->pet;
+            $reservation->pet = $request->pet === 'true' ? '1': '0';
 
             $reservation->save();
 

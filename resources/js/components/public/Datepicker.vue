@@ -200,14 +200,14 @@ export default {
 
         const isNextMonthDisabled = computed(() => {
             if (maxDate.value) {
-                return maxDate.value <= selectedMonth.date
+                return maxDate.value <= selectedMonth.date.toISODate()
             } else {
                 return false;
             }
         });
 
         onMounted(() => {
-            renderMonth()
+                renderMonth()
             }
         )
 
@@ -244,6 +244,12 @@ export default {
         function isDisabled(date) {
             if (date < minDate.value || date > maxDate.value) {
                 return true;
+            } else if (props.reservedDates.some((d) => {
+                return d.start === date;
+            }) && props.reservedDates.some((d) => {
+                return d.end === date;
+            })) {
+                return true
             } else {
                 return props.reservedDates.some((d) => {
                     return d.start < date && date < d.end;
@@ -314,9 +320,9 @@ export default {
         }
 
         function isRangeValid() {
-            if(props.reservedDates.some((d) => {
+            if (props.reservedDates.some((d) => {
                 return d.start === selectedRange.start
-            })){
+            })) {
                 return false;
             } else if (selectedRange.start && selectedRange.end) {
                 if (props.reservedDates && props.reservedDates.some((d) => {

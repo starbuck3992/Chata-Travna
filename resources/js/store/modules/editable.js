@@ -60,7 +60,7 @@ const editableModule = {
         },
     },
     actions: {
-        async saveData({commit, dispatch}, id) {
+        async saveData({commit}, id) {
             try {
                 //Set variables
                 let textValue = document.getElementById(id).innerText;

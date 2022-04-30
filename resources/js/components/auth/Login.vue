@@ -3,7 +3,7 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <img class="mx-auto h-32 w-auto" src="/storage/images/icon.png" alt="Workflow" />
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Přihlášení do admini prostředí</h2>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Přihlášení do admin prostředí</h2>
       </div>
       <form class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />

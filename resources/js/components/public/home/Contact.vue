@@ -28,7 +28,7 @@
             <div class="mt-8">
               <dt class="sr-only">Adress</dt>
               <dd>
-                <p>{{editableTexts.adress.text}}</p>
+                <p>{{editableTexts.address.text}}</p>
               </dd>
             </div>
           </dl>

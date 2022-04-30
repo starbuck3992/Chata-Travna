@@ -20,10 +20,10 @@
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
               <nav class="px-2 space-y-1">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600', 'group flex items-center px-2 py-2 text-base font-medium rounded-md']">
+                <router-link v-for="(item, index) in navigation" :key="index" :to="{ name: item.href }" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                   <component :is="item.icon" class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
                   {{ item.name }}
-                </a>
+                </router-link>
               </nav>
             </div>
           </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="mt-5 flex-1 flex flex-col">
           <nav class="flex-1 px-2 pb-4 space-y-1">
-            <router-link v-for="(item, index) in navigation" :key="index" :to="{ name: item.href }" @click="actualCurrent=index" :class="[item.currency == actualCurrent ? 'bg-indigo-800 text-white' : 'text-indigo-100 hover:bg-indigo-600', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md']">
+            <router-link v-for="(item, index) in navigation" :key="index" :to="{ name: item.href }" class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
               <component :is="item.icon" class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
               {{ item.name }}
             </router-link>
@@ -94,8 +94,8 @@ import {
 import { SearchIcon } from '@heroicons/vue/solid'
 
 const navigation = [
-  { name: 'Rezervace', href: 'reservations', icon: CalendarIcon, currency : 0 },
-  { name: 'Nastavení', href: 'settings', icon: ChartBarIcon, currency : 1 },
+  { name: 'Rezervace', href: 'reservations', icon: CalendarIcon },
+  { name: 'Nastavení', href: 'settings', icon: ChartBarIcon },
 ]
 
 export default {
@@ -115,15 +115,17 @@ export default {
   },
   setup() {
     const sidebarOpen = ref(false)
-    const actualCurrent = 0;
 
     return {
       navigation,
-      sidebarOpen,
-      actualCurrent
+      sidebarOpen
     }
   },
 }
 </script>
-<style scoped lang=“postcss”>
+<style scoped>
+  .router-link-active {
+    color: white;
+    background-color: #4f46e5;
+  }
 </style>

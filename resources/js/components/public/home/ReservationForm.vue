@@ -7,7 +7,7 @@
                     <div class="col-span-4">
                         Termín
                     </div>
-                    <div class="col-span-2">
+                    <div class="col-span-4 sm:col-span-2">
                         <Datepicker ref="datepicker" v-model:range="form.reservationRange"
                                     :reserved-dates="reservedDates" :min-date="minDate"
                                     :max-date="maxDate"></Datepicker>
@@ -22,7 +22,7 @@
                             v-text="form.errors.get('reservationRange_end')"
                         ></div>
                     </div>
-                    <div class="col-span-2 space-y-2">
+                    <div class="col-span-4 sm:col-span-2 space-y-2">
                         <p><span class="font-semibold">Od: </span>{{ currentReservation.start }}</p>
                         <p><span class="font-semibold">Do: </span>{{ currentReservation.end }}</p>
                         <p><span class="font-semibold">Počet nocí: </span>{{ currentReservation.totalNights }}</p>

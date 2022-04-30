@@ -25,7 +25,7 @@ const routes = [
         component: AdminPage,
         children: [
             {
-                path: '',
+                path: 'reservations',
                 name: 'reservations',
                 component: Reservations,
             },

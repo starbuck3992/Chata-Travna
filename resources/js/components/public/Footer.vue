@@ -35,8 +35,9 @@
             </div>
           </div>
           <div class="h-1 max-w-[1300px] border-gray-600 my-5 sm:my-20 mx-auto border-t-2 border-dashed"></div>
-          <div>
+          <div class="text-center py-2">
             <h1 class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita py-5 text-center">© Copyright MJ-WEBSITE. All right reserved.</h1>
+            <router-link class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita text-center mx-auto" :to="{ name : 'login'}">Přihlásit se</router-link>
           </div>
         </footer>
         <!-- End Footer -->

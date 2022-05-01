@@ -21,6 +21,7 @@
                                 <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="text-black px-3 py-2 rounded-md text-md font-medium uppercase hover:underline-offset-1 hover:underline">
                                     {{ item.name }}
                                 </router-link>
+                                <Logout class="text-base text-red-900 text-center mt-2"></Logout>
                             </div>
                         </div>
                         </div>
@@ -72,6 +73,7 @@ import { BellIcon, MenuIcon, XIcon, DeviceMobileIcon } from '@heroicons/vue/outl
 import Editable from '../Editable.vue'
 import {useStore} from 'vuex'
 import {computed} from 'vue'
+import Logout from '../auth/Logout'
 
 const navigation = [
   { name: 'Domů', href: 'homeIndex', current: true },
@@ -81,6 +83,7 @@ const navigation = [
 
 export default {
   components: {
+      Logout,
     Disclosure,
     DisclosureButton,
     DisclosurePanel,

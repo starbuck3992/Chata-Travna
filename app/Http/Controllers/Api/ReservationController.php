@@ -7,6 +7,7 @@ use App\Http\Requests\ReservationStoreRequest;
 use App\Http\Resources\PublicResources\ReservationsList;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Throwable;
 
 class ReservationController extends Controller
@@ -15,7 +16,10 @@ class ReservationController extends Controller
     {
         try {
 
-            return ReservationsList::collection(Reservation::orderBy('start', 'asc')->get());
+            $start_date = Carbon::now()->startOfMonth();
+            $start_date->subDays( $start_date->dayOfWeekIso - 1);
+
+            return ReservationsList::collection(Reservation::whereDate('end','>=', $start_date)->orderBy('start', 'asc')->get());
 
         } catch (Throwable $e) {
 

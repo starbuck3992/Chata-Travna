@@ -1,4 +1,5 @@
-import { createWebHistory, createRouter } from "vue-router";
+import {createWebHistory, createRouter} from "vue-router";
+import store from "../store";
 
 //Public
 import LandingPage from "../components/public/LandingPage";
@@ -6,7 +7,7 @@ import HomeIndex from "../components/public/home/HomeIndex";
 import ReservationForm from "../components/public/home/ReservationForm";
 import Contact from "../components/public/home/Contact";
 
-import NotFound from '../components/public/404'
+import NotFound from '../components/public/NotFound'
 
 //Admin
 import AdminPage from '../components/admin/AdminPage'
@@ -22,15 +23,19 @@ import ResetPassword from '../components/auth/ResetPassword'
 const routes = [
     {
         path: '/admin',
+        name: 'adminPage',
         component: AdminPage,
+        meta: {
+            requiresAuth: true
+        },
         children: [
             {
-                path: 'reservations',
+                path: 'rezervace',
                 name: 'reservations',
                 component: Reservations,
             },
             {
-                path: 'settings',
+                path: 'nastaveni',
                 name: 'settings',
                 component: Settings,
             },
@@ -41,7 +46,7 @@ const routes = [
         component: LandingPage,
         meta: {
             hideHeader: false,
-            showValue : "Chata Travná",
+            showValue: "Chata Travná",
         },
         children: [
             {
@@ -50,7 +55,7 @@ const routes = [
                 component: HomeIndex,
                 meta: {
                     hideHeader: false,
-                    showValue : "Chata Travná",
+                    showValue: "Chata Travná"
                 },
             },
             {
@@ -59,36 +64,52 @@ const routes = [
                 component: ReservationForm,
                 meta: {
                     hideHeader: true,
-                    showValue : "Rezervace",
+                    showValue: "Rezervace"
                 },
             },
             {
-                path: 'contact',
+                path: 'kontakt',
                 name: 'contact',
                 component: Contact,
                 meta: {
                     hideHeader: true,
-                    showValue : "Kontakt",
-                },
-            },
+                    showValue: "Kontakt"
+                }
+            }
         ]
     },
 
     //Auth
     {
-        path: '/auth/login',
+        path: '/auth/prihlaseni',
         name: 'login',
         component: Login,
+        meta: {
+            guest: true
+        }
     },
     {
-        path: '/auth/forgotPassword',
+        path: '/auth/zapomenute-heslo',
         name: 'forgotPassword',
         component: ForgotPassword,
+        meta: {
+            guest: true
+        }
     },
     {
-        path: '/auth/resetPassword',
+        path: '/auth/reset-hesla',
         name: 'resetPassword',
         component: ResetPassword,
+        meta: {
+            guest: true
+        }
+    },
+
+    //404
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: NotFound,
     }
 
 ];
@@ -96,6 +117,23 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
+})
+
+router.beforeEach((to, from, next) => {
+
+    const loggedIn = store.getters['userModule/loggedIn']
+
+    const canNavigate = to.matched.some(() => {
+        if (!loggedIn && to.meta.requiresAuth) {
+            return false
+        } else return !(loggedIn && to.meta.guest)
+    })
+
+    if (!canNavigate) {
+        return next('/')
+    } else {
+        next()
+    }
 })
 
 export default router;

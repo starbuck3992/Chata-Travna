@@ -30,7 +30,7 @@
             </button>
         </div>
         <div v-if="validationMessage" class="text-red-800"> {{ validationMessage }}</div>
-        <div class="grid grid-cols-3 mt-3">
+        <div class="grid grid-cols-4 mt-3">
             <div>
                 <button type="button" class="items-center p-3 border border-transparent rounded-full shadow-sm text-white bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 inline-block"></button>
                 <p class="text-xs">Rezervováno</p>
@@ -42,6 +42,10 @@
             <div>
                 <button type="button" class="inline-flex items-center p-3 border border-gray-500 rounded-full shadow-sm text-white bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"></button>
                 <p class="text-xs">Volno</p>
+            </div>
+            <div>
+                <button type="button" class="inline-flex items-center p-3 border border-gray-500 rounded-full shadow-sm text-white bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"></button>
+                <p class="text-xs">Blokováno</p>
             </div>
         </div>
     </div>
@@ -89,7 +93,7 @@ export default {
             previousNextMonth: 'text-gray-400 bg-gray-50',
             today: 'text-indigo-600 font-semibold',
             open: 'hover:bg-gray-100',
-            disabled: 'text-white bg-red-600',
+            disabled: 'text-white bg-gray-600',
             reserved: {
                 range: 'bg-red-600',
                 start: 'bg-reserved-date-range-start',

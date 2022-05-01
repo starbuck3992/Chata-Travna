@@ -23,5 +23,7 @@ Route::get('/fields', [FieldController::class, 'index']);
 
 
 //Admin
+Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::get('/admin/reservations', [ReservationController::class, 'index']);
 Route::post('/admin/fields', [FieldController::class, 'update']);
+});

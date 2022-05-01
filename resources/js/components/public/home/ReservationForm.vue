@@ -232,7 +232,6 @@ export default {
                 datepicker.value.renderMonth();
                 form.onSuccess();
             } catch (e) {
-                console.log(1)
                 if (e.response && e.response.status === 422) {
                     form.onFail(e.response.data.errors);
                 } else {

@@ -20,9 +20,6 @@
                                 <CheckIcon class="h-6 w-6 text-green-600" aria-hidden="true"/>
                             </div>
                             <div class="mt-3 text-center sm:mt-5">
-                                <DialogTitle as="h3" class="text-lg leading-6 font-medium text-gray-900">
-                                    Ok
-                                </DialogTitle>
                                 <div class="mt-2">
                                     <p class="text-sm text-gray-500">{{ successMessage }}
                                     </p>

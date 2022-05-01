@@ -31,31 +31,31 @@ const user = {
                 commit('createSession', response.data);
                 return response;
             } catch (error) {
-                return error
+                throw(error);
             }
         },
         async forgotPassword({commit}, payload) {
             try {
                 await Api.get('/sanctum/csrf-cookie');
-                return await Api.post('/forgot-password', payload);
+                return Api.post('/forgot-password', payload);
             } catch (error) {
-                return error
+                throw(error);
             }
         },
         async resetPassword({commit}, payload) {
             try {
                 await Api.get('/sanctum/csrf-cookie');
-                return await Api.post('/reset-password', payload);
+                return Api.post('/reset-password', payload);
             } catch (error) {
-                return error
+                throw(error);
             }
         },
         async updatePassword({commit}, payload) {
             try {
                 await Api.get('/sanctum/csrf-cookie');
-                return await Api.put('/user/password', payload);
+                return Api.put('/user/password', payload);
             } catch (error) {
-                return error
+                throw(error);
             }
         },
         async logout({commit}) {
@@ -63,7 +63,7 @@ const user = {
                 await Api.post('/logout');
                 commit('destroySession');
             } catch (error) {
-                return error
+                throw(error);
             }
         }
     }

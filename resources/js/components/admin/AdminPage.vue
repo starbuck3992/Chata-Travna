@@ -90,14 +90,10 @@ import {
   ChartBarIcon,
   MenuAlt2Icon,
   XIcon,
+  UserIcon,
+  HomeIcon
 } from '@heroicons/vue/outline'
 import { SearchIcon } from '@heroicons/vue/solid'
-
-const navigation = [
-  { name: 'Rezervace', href: 'reservations', icon: CalendarIcon },
-  { name: 'Nastavení Rezervací', href: 'settings', icon: ChartBarIcon },
-  { name: 'Nastavení Uživatatele', href: 'userSettings', icon: ChartBarIcon },
-]
 
 export default {
   components: {
@@ -113,9 +109,17 @@ export default {
     MenuAlt2Icon,
     SearchIcon,
     XIcon,
+    UserIcon,
+    HomeIcon
   },
   setup() {
     const sidebarOpen = ref(false)
+    const navigation = [
+      { name: 'Rezervace', href: 'reservations', icon: CalendarIcon },
+      { name: 'Nastavení Rezervací', href: 'settings', icon: ChartBarIcon },
+      { name: 'Nastavení Uživatatele', href: 'userSettings', icon: UserIcon },
+      { name: 'Zpět na úvodní stránku', href: 'homeIndex', icon: HomeIcon },
+    ]
 
     return {
       navigation,

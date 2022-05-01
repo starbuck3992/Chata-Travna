@@ -21,7 +21,10 @@
                                 <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="text-black px-3 py-2 rounded-md text-md font-medium uppercase hover:underline-offset-1 hover:underline">
                                     {{ item.name }}
                                 </router-link>
-                                <Logout class="text-base text-red-900 text-center mt-2"></Logout>
+                                <router-link v-show="loggedIn" :to="{ name: 'reservations' }" class="text-black px-3 py-2 rounded-md text-md font-medium uppercase hover:underline-offset-1 hover:underline">
+                                    Admin Prostředí
+                                </router-link>
+                                <Logout v-show="loggedIn" class="text-base text-red-900 text-center mt-2"></Logout>
                             </div>
                         </div>
                         </div>
@@ -37,6 +40,8 @@
                 <DisclosurePanel class="sm:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.href }" class="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ item.name }}</router-link>
+                    <router-link v-show="loggedIn" :to="{ name: 'reservations' }" class="text-gray-800 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Admin Prostředí</router-link>
+                    <Logout v-show="loggedIn" class="text-base text-red-900 text-center mt-2"></Logout>
                 </div>
                 </DisclosurePanel>
             </Disclosure>
@@ -100,10 +105,12 @@ export default {
   setup() {
     const store = useStore();
     const menuTexts = computed(()=> store.getters['editableModule/content']);
+    const loggedIn = computed(() => store.getters['userModule/loggedIn']);
 
     return {
       navigation,
       menuTexts,
+      loggedIn
     }
   },
 }

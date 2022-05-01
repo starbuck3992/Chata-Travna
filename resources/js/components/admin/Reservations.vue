@@ -27,37 +27,48 @@
             <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto">
                 <div class="hidden w-full lg:grid lg:grid-cols-7 lg:gap-px">
                     <div v-for="day in selectedMonth.days" :key="day.date"
-                         :class="[day.currentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative py-2 px-3']">
+                         :class="[day.currentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative py-2 px-3 min-h-[6rem]']">
                         <time :datetime="day.date"
-                              :class="day.today ? 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white' : undefined">
+                              :class="day.today ? 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white mx-auto' : undefined">
                             {{ day.date.split('-').pop().replace(/^0/, '') }}
                         </time>
                         <ol v-if="day.events.length > 0" class="mt-2">
-                            <li v-for="event in day.events" :key="event.id">
-                                <a :href="event.href" class="group flex">
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
+                            <Menu as="li" v-for="(event, index) in day.events" :key="index" :class="[event.color ? 'bg-red-500' : 'bg-red-700' ,'cursor-pointer rounded-xl mt-2 hover:bg-red-800 m-auto']">
+                                <div>
+                                    <MenuButton class="rounded-full items-center text-gray-400 hover:text-gray-600 inline-block m-auto w-full">
+                                        <p class="flex-auto truncate text-sm text-white inline-block">
                                         {{ event.name }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.surname }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.phone }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.email }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.adult_count }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.child_count }}
-                                    </p>
-                                    <p class="flex-auto truncate font-medium text-gray-900 group-hover:text-indigo-600">
-                                        {{ event.pet }}
-                                    </p>
-                                </a>
-                            </li>
+                                        </p>
+                                        <p class="flex-auto truncate text-sm text-white inline-block ml-1 mr-1">
+                                            {{ event.surname }}
+                                        </p>
+                                    </MenuButton>
+                                </div>
+
+                                <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                                <MenuItems class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                                    <div class="py-1">
+                                    <MenuItem>
+                                         <p class="text-gray-700 block px-4 py-2 text-sm text-left cursor-text">Telefon: {{ event.phone }}</p>
+                                    </MenuItem>
+                                    <MenuItem>
+                                        <p class="text-gray-700 block px-4 py-2 text-sm text-left cursor-text">Email: {{ event.email }}</p>
+                                    </MenuItem>
+                                    <MenuItem>
+                                         <p class="text-gray-700 block px-4 py-2 text-sm text-left cursor-text">Počet dospělých: {{ event.adult_count }}</p>
+                                    </MenuItem>
+                                    <MenuItem>
+                                         <p class="text-gray-700 block px-4 py-2 text-sm text-left cursor-text">Počet dětí: {{ event.child_count }}</p>
+                                    </MenuItem>
+                                    <form method="POST" action="#">
+                                        <MenuItem>
+                                        <button type="submit" class="block w-full text-left px-4 py-2 text-sm bg-red-500 text-white">Zrušit rezervci</button>
+                                        </MenuItem>
+                                    </form>
+                                    </div>
+                                </MenuItems>
+                                </transition>
+                            </Menu>
                         </ol>
                     </div>
                 </div>
@@ -67,7 +78,7 @@
 </template>
 
 <script>
-import {ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ClockIcon, DotsHorizontalIcon} from '@heroicons/vue/solid'
+import {ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ClockIcon, DotsHorizontalIcon, DotsVerticalIcon} from '@heroicons/vue/solid'
 import {Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue'
 import {onMounted, ref, computed, reactive} from "vue";
 import Api from "../../services/api";
@@ -85,6 +96,7 @@ export default {
         ChevronRightIcon,
         ClockIcon,
         DotsHorizontalIcon,
+        DotsVerticalIcon,
     },
     setup() {
         const store = useStore();

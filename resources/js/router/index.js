@@ -13,6 +13,7 @@ import NotFound from '../components/public/NotFound'
 import AdminPage from '../components/admin/AdminPage'
 import Reservations from '../components/admin/Reservations'
 import Settings from '../components/admin/Settings'
+import UserSettings from '../components/admin/UserSettings'
 
 //Auth
 import Login from '../components/auth/Login'
@@ -38,6 +39,11 @@ const routes = [
                 path: 'nastaveni',
                 name: 'settings',
                 component: Settings,
+            },
+            {
+                path: 'uzivatelske-nastaveni',
+                name: 'userSettings',
+                component: UserSettings,
             },
         ]
     },

@@ -95,7 +95,8 @@ import { SearchIcon } from '@heroicons/vue/solid'
 
 const navigation = [
   { name: 'Rezervace', href: 'reservations', icon: CalendarIcon },
-  { name: 'Nastavení', href: 'settings', icon: ChartBarIcon },
+  { name: 'Nastavení Rezervací', href: 'settings', icon: ChartBarIcon },
+  { name: 'Nastavení Uživatatele', href: 'userSettings', icon: ChartBarIcon },
 ]
 
 export default {

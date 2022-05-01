@@ -37,7 +37,8 @@
           <div class="h-1 max-w-[1300px] border-gray-600 my-5 sm:my-20 mx-auto border-t-2 border-dashed"></div>
           <div class="text-center py-2">
             <h1 class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita py-5 text-center">© Copyright MJ-WEBSITE. All right reserved.</h1>
-            <router-link class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita text-center mx-auto" :to="{ name : 'login'}">Přihlásit se</router-link>
+            <router-link v-if="!loggedIn" class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita text-center mx-auto" :to="{ name : 'login'}">Přihlásit se</router-link>
+            <Logout v-else class="text-md font-extrabold tracking-tight text-white sm:text-md xl:text-md font-sansita text-center mx-auto"></Logout>
           </div>
         </footer>
         <!-- End Footer -->
@@ -46,16 +47,20 @@
 import {computed} from 'vue'
 import {useStore} from 'vuex'
 import Editable from '../Editable.vue'
+import Logout from '../auth/Logout'
 export default {
   components: {
-    Editable
+    Editable,
+    Logout
   },
   setup() {
     const store = useStore();
     const editableTexts = computed(()=> store.getters['editableModule/content']);
+    const loggedIn = computed(() => store.getters['userModule/loggedIn']);
 
     return {
-      editableTexts
+      editableTexts,
+      loggedIn
     }
   },
 }

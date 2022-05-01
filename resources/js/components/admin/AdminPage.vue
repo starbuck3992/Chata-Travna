@@ -24,6 +24,10 @@
                   <component :is="item.icon" class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
                   {{ item.name }}
                 </router-link>
+                <a class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                  <LogoutIcon class="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" ></LogoutIcon>
+                  <Logout class="w-full"></Logout>
+                </a>
               </nav>
             </div>
           </div>
@@ -47,6 +51,10 @@
               <component :is="item.icon" class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
               {{ item.name }}
             </router-link>
+            <a class="text-indigo-100 hover:bg-indigo-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+              <LogoutIcon class="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" ></LogoutIcon>
+              <Logout class="w-full"></Logout>
+            </a>
           </nav>
         </div>
       </div>
@@ -74,6 +82,7 @@
 
 <script>
 import { ref } from 'vue'
+import Logout from '../auth/Logout'
 import {
   Dialog,
   DialogOverlay,
@@ -91,7 +100,8 @@ import {
   MenuAlt2Icon,
   XIcon,
   UserIcon,
-  HomeIcon
+  HomeIcon,
+  LogoutIcon
 } from '@heroicons/vue/outline'
 import { SearchIcon } from '@heroicons/vue/solid'
 
@@ -105,19 +115,21 @@ export default {
     MenuItems,
     TransitionChild,
     TransitionRoot,
+    Logout,
     BellIcon,
     MenuAlt2Icon,
     SearchIcon,
     XIcon,
     UserIcon,
-    HomeIcon
+    HomeIcon,
+    LogoutIcon
   },
   setup() {
     const sidebarOpen = ref(false)
     const navigation = [
       { name: 'Rezervace', href: 'reservations', icon: CalendarIcon },
-      { name: 'Nastavení Rezervací', href: 'settings', icon: ChartBarIcon },
-      { name: 'Nastavení Uživatatele', href: 'userSettings', icon: UserIcon },
+      { name: 'Nastavení rezervací', href: 'settings', icon: ChartBarIcon },
+      { name: 'Nastavení uživatele', href: 'userSettings', icon: UserIcon },
       { name: 'Zpět na úvodní stránku', href: 'homeIndex', icon: HomeIcon },
     ]
 

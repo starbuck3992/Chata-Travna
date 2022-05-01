@@ -3,7 +3,7 @@
     <div class="lg:col-span-1">
         <div class="mt-10">
             <form>
-                <label for="email" class="block text-sm font-medium text-gray-700">Zobrazovat hlášení/upozirnění na uvodní stránce?</label>
+                <label for="email" class="block text-sm font-medium text-gray-700">Zobrazovat hlášení/upozornění na uvodní stránce?</label>
                 <div class="mt-1 inline-flex">
                     <select id="show" name="show" class="mt-1 mr-10 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option>Ano</option>

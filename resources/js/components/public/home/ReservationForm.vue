@@ -4,7 +4,7 @@
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-4 gap-6">
-                    <div class="col-span-4">
+                    <div class="col-span-4 font-sansita">
                         Termín
                     </div>
                     <div class="col-span-4 sm:col-span-2">
@@ -23,16 +23,16 @@
                         ></div>
                     </div>
                     <div class="col-span-4 sm:col-span-2 space-y-2">
-                        <p><span class="font-semibold">Od: </span>{{ currentReservation.start }}</p>
-                        <p><span class="font-semibold">Do: </span>{{ currentReservation.end }}</p>
-                        <p><span class="font-semibold">Počet nocí: </span>{{ currentReservation.totalNights }}</p>
-                        <p><span class="font-semibold">Cena za 1 noc: </span>{{ currentReservation.pricePerNight }}
+                        <p><span class="font-semibold font-sansita">Od: </span>{{ currentReservation.start }}</p>
+                        <p><span class="font-semibold font-sansita">Do: </span>{{ currentReservation.end }}</p>
+                        <p><span class="font-semibold font-sansita">Počet nocí: </span>{{ currentReservation.totalNights }}</p>
+                        <p><span class="font-semibold font-sansita">Cena za 1 noc: </span>{{ currentReservation.pricePerNight }}
                         </p>
-                        <p><span class="font-semibold">Cena celkem: </span>{{ currentReservation.totalPrice }}</p>
+                        <p><span class="font-semibold font-sansita">Cena celkem: </span>{{ currentReservation.totalPrice }}</p>
                     </div>
                     <div class="col-span-2">
                         <label for="first-name"
-                               class="block text-sm font-medium text-gray-700">Jméno</label>
+                               class="block text-sm font-medium text-gray-700 font-sansita">Jméno</label>
                         <input required v-model="form.name" type="text" name="first-name"
                                id="first-name"
                                autocomplete="given-name"
@@ -46,7 +46,7 @@
 
                     <div class="col-span-2">
                         <label for="last-name"
-                               class="block text-sm font-medium text-gray-700">Příjmení</label>
+                               class="block text-sm font-medium text-gray-700 font-sansita">Příjmení</label>
                         <input required v-model="form.surname" type="text" name="last-name"
                                id="last-name"
                                autocomplete="family-name"
@@ -60,7 +60,7 @@
 
                     <div class="col-span-2">
                         <label for="email-address"
-                               class="block text-sm font-medium text-gray-700">Email</label>
+                               class="block text-sm font-medium text-gray-700 font-sansita">Email</label>
                         <input required v-model="form.email" type="email" name="email-address"
                                id="email-address"
                                autocomplete="email"
@@ -74,7 +74,7 @@
 
                     <div class="col-span-2">
                         <label for="phone-number"
-                               class="block text-sm font-medium text-gray-700">Telefon</label>
+                               class="block text-sm font-medium text-gray-700 font-sansita">Telefon</label>
                         <input required v-model="form.phone" type="tel" name="phone-number"
                                id="phone-number"
                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"/>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-span-2">
                         <label for="adult-count"
-                               class="block text-sm font-medium text-gray-700">Počet
+                               class="block text-sm font-medium text-gray-700 font-sansita">Počet
                             dospělých</label>
                         <input required v-model="form.adultCount" type="number" min="1" max="4"
                                name="adult-count"
@@ -101,7 +101,7 @@
 
                     <div class="col-span-2">
                         <label for="child-count"
-                               class="block text-sm font-medium text-gray-700">Počet
+                               class="block text-sm font-medium text-gray-700 font-sansita">Počet
                             dětí</label>
                         <input required v-model="form.childCount" type="number" min="0" max="4"
                                name="child-count"
@@ -119,7 +119,7 @@
                             <input v-model="form.pet" id="pet" name="pet" type="checkbox"
                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"/>
                             <div class="ml-3 text-sm">
-                                <label for="pet" class="font-medium text-gray-700">Domácí
+                                <label for="pet" class="font-sansita font-medium text-gray-700">Domácí
                                     mazlíček</label>
                             </div>
                         </div>
@@ -138,12 +138,12 @@
                     name="title"
                 />
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 font-sansita">
                 <p>Odesláním rezervačního formuláře souhlasíte se zpracováním osobních údajů dle
                     <b>GDPR</b>.
                 </p>
                 <button :disabled="!validateForm" type="submit"
-                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        class="font-sansita inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Rezervovat
                 </button>
             </div>

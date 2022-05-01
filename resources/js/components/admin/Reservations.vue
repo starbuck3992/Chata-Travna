@@ -33,7 +33,7 @@
                             {{ day.date.split('-').pop().replace(/^0/, '') }}
                         </time>
                         <ol v-if="day.events.length > 0" class="mt-2">
-                            <Menu as="li" v-for="(event, index) in day.events" :key="index" :class="[event.color ? 'bg-indigo-500' : 'bg-indigo-700' ,'cursor-pointer rounded-xl mt-2 hover:bg-indigo-800 m-auto']">
+                            <Menu as="li" v-for="(event, index) in day.events" :key="index" :class="[true ? 'bg-indigo-500' : 'bg-indigo-700' ,'cursor-pointer rounded-xl mt-2 hover:bg-indigo-800 m-auto']">
                                 <div>
                                     <MenuButton class="rounded-full items-center text-gray-400 hover:text-gray-600 inline-block m-auto w-full">
                                         <p class="flex-auto truncate text-sm text-white inline-block">

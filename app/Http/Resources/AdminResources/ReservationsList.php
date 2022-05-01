@@ -21,12 +21,10 @@ class ReservationsList extends JsonResource
             'name'          => $this->name,
             'surname'       => $this->surname,
             'email'         => $this->email,
-            'city'          => $this->city,
-            'zip'           => $this->zip,
+            'phone'         => $this->phone,
             'adult_count'   => $this->adult_count,
             'child_count'   => $this->child_count,
-            'pet'           => $this->pet,
-            'created_at'    => $this->created_at->timezone('Europe/Prague')->format('d. m. Y H:i:s'),
+            'pet'           => $this->pet
         ];
     }
 }

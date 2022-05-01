@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
-use App\Http\Resources\PublicResources\ReservationsList;
+use App\Http\Resources\PublicResources\ReservationsList as PublicReservationsList;
+use App\Http\Resources\AdminResources\ReservationsList as AdminReservationsList;
 use App\Models\Reservation;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Throwable;
 
@@ -19,7 +19,7 @@ class ReservationController extends Controller
             $start_date = Carbon::now()->startOfMonth();
             $start_date->subDays( $start_date->dayOfWeekIso - 1);
 
-            return ReservationsList::collection(Reservation::whereDate('end','>=', $start_date)->orderBy('start', 'asc')->get());
+            return PublicReservationsList::collection(Reservation::whereDate('end','>=', $start_date)->orderBy('start', 'asc')->get());
 
         } catch (Throwable $e) {
 
@@ -29,21 +29,19 @@ class ReservationController extends Controller
         }
     }
 
-    public function listResource()
+    public function adminIndex()
     {
+        try {
 
+            return AdminReservationsList::collection(Reservation::orderBy('start', 'asc')->get());
 
-    }
+        } catch (Throwable $e) {
 
+            report($e);
+            return response()->json(['message' => 'Nastala chyba při načítání rezervací'], 500);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        }
+
     }
 
     public function store(ReservationStoreRequest $request)
@@ -73,50 +71,5 @@ class ReservationController extends Controller
             return response()->json(['message' => 'Nastala chyba při rezervování'], 500);
 
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div v-cloak class="text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
+    <div class="text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 xl:col-start-9">
         <div class="flex items-center text-gray-900">
             <button @click="switchMonth(-1)" :disabled="isPreviousMonthDisabled" type="button"
                     class="-m-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500">

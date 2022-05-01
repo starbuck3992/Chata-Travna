@@ -10,7 +10,6 @@ use Throwable;
 
 class SettingController extends Controller
 {
-
     public function index()
     {
         try {
@@ -23,17 +22,6 @@ class SettingController extends Controller
             return response()->json(['message' => 'Nastala chyba při načítání nastavení'], 500);
 
         }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function update(Request $request)
-    {
-        //
     }
 
 }

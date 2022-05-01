@@ -25,15 +25,15 @@
                 <div class="bg-white py-2">Ne</div>
             </div>
             <div class="flex bg-gray-200 text-xs leading-6 text-gray-700 lg:flex-auto">
-                <div class="hidden w-full lg:grid lg:grid-cols-7 lg:gap-px">
+                <div class="w-full lg:grid lg:grid-cols-7 lg:gap-px">
                     <div v-for="day in selectedMonth.days" :key="day.date"
-                         :class="[day.currentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative py-2 px-3 min-h-[6rem]']">
+                         :class="[day.currentMonth ? 'bg-white' : 'bg-gray-50 text-gray-500', 'relative py-2 px-3 min-h-[6rem] border-b-2 border-black sm:border-none']">
                         <time :datetime="day.date"
-                              :class="day.today ? 'flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white mx-auto' : undefined">
+                              :class="day.today ? 'flex h-6 w-6 items-center justify-center font-bold text-lg rounded-full bg-indigo-600 text-white mx-auto' : 'font-bold text-lg'">
                             {{ day.date.split('-').pop().replace(/^0/, '') }}
                         </time>
                         <ol v-if="day.events.length > 0" class="mt-2">
-                            <Menu as="li" v-for="(event, index) in day.events" :key="index" :class="[event.color ? 'bg-red-500' : 'bg-red-700' ,'cursor-pointer rounded-xl mt-2 hover:bg-red-800 m-auto']">
+                            <Menu as="li" v-for="(event, index) in day.events" :key="index" :class="[event.color ? 'bg-indigo-500' : 'bg-indigo-700' ,'cursor-pointer rounded-xl mt-2 hover:bg-indigo-800 m-auto']">
                                 <div>
                                     <MenuButton class="rounded-full items-center text-gray-400 hover:text-gray-600 inline-block m-auto w-full">
                                         <p class="flex-auto truncate text-sm text-white inline-block">

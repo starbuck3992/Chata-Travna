@@ -63,12 +63,13 @@ class Api {
         })
     }
 
-    post(path, payload, headers) {
+    post(path, payload, parameters, headers) {
         return this.api.request({
             method: 'POST',
             url: path,
             responseType: 'json',
             data: payload,
+            params: parameters,
             headers: headers
         })
     }

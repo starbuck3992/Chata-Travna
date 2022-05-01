@@ -53,7 +53,7 @@ const user = {
         async updatePassword({commit}, payload) {
             try {
                 await Api.get('/sanctum/csrf-cookie');
-                return Api.put('/user/password', payload);
+                return Api.post('/user/password', payload, { _method: 'PUT' });
             } catch (error) {
                 throw(error);
             }

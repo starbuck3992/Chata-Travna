@@ -10,7 +10,7 @@ Route::get('/reservations', [ReservationController::class, 'index']);
 Route::get('/fields', [FieldController::class, 'index']);
 
 //Admin
-//Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::get('/admin/reservations', [ReservationController::class, 'adminIndex']);
 Route::post('/admin/fields', [FieldController::class, 'update']);
-//});
+});

@@ -24,7 +24,8 @@ class ReservationsList extends JsonResource
             'phone'         => $this->phone,
             'adult_count'   => $this->adult_count,
             'child_count'   => $this->child_count,
-            'pet'           => $this->pet
+            'pet'           => $this->pet,
+            'color'         => $this->id % 2 == 0
         ];
     }
 }

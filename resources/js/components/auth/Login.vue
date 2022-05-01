@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import {reactive} from "vue"
-import {useStore} from "vuex"
+import {reactive} from "vue";
+import {useStore} from "vuex";
 import Form from "../../utilities/form";
 import router from "../../router";
 import {LockClosedIcon} from "@heroicons/vue/solid";
@@ -73,7 +73,7 @@ export default {
             try {
                 await store.dispatch('userModule/login', form.objectToFormData());
                 form.onSuccess();
-                await router.push({name: 'adminPage'});
+                await router.push({name: 'reservations'});
             } catch (e) {
                 if (e.response) {
                     if (e.response.status === 422) {

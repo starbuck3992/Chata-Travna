@@ -225,10 +225,11 @@ export default {
 
         async function submit() {
             try {
+                let reservationRange = form.reservationRange
                 const response = await Api.post('/api/reservations', form.objectToFormData());
                 await store.dispatch('messagesModule/showSuccess', response.data.message);
                 datepicker.value.clearRange();
-                reservedDates.value.push(form.reservationRange);
+                reservedDates.value.push(reservationRange);
                 datepicker.value.renderMonth();
                 form.onSuccess();
             } catch (e) {
